@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_03_095410) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_03_124513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_095410) do
     t.string "name_fr"
     t.string "name_ch_simplified"
     t.string "name_ch_pinyin"
-    t.string "type"
+    t.string "classification"
     t.integer "number_satellites"
     t.text "summary"
     t.text "funfact"
@@ -72,6 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_095410) do
     t.float "revolution"
     t.float "rotation"
     t.string "distance_from_star"
+    t.bigint "star_id", null: false
+    t.index ["star_id"], name: "index_planets_on_star_id"
   end
 
   create_table "satellites", force: :cascade do |t|
@@ -80,7 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_095410) do
     t.string "name_fr"
     t.string "name_ch_simplified"
     t.string "name_ch_pinyin"
-    t.string "type"
+    t.string "classification"
     t.text "summary"
     t.text "funfact"
     t.datetime "created_at", null: false
@@ -88,6 +90,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_095410) do
     t.float "revolution"
     t.float "rotation"
     t.string "distance_from_planet"
+    t.bigint "planet_id", null: false
+    t.index ["planet_id"], name: "index_satellites_on_planet_id"
   end
 
   create_table "specials", force: :cascade do |t|
@@ -107,7 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_095410) do
     t.string "name_fr"
     t.string "name_ch_simplified"
     t.string "name_ch_pinyin"
-    t.string "type"
+    t.string "classification"
     t.integer "number_planets"
     t.text "summary"
     t.text "funfact"
@@ -169,6 +173,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_03_095410) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "planets", "stars"
+  add_foreign_key "satellites", "planets"
   add_foreign_key "usercards", "cards"
   add_foreign_key "usercards", "users"
   add_foreign_key "usergalleries", "users"
