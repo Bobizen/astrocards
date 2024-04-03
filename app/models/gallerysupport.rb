@@ -1,0 +1,2 @@
+class Gallerysupport < ApplicationRecord
+end
