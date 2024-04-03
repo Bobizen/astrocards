@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :privacy_statement ]
 
   def home
     client = OpenAI::Client.new
@@ -13,4 +13,8 @@ class PagesController < ApplicationController
       }
     ).dig("choices", 0, "message", "content")
   end
+
+  def privacy_statement
+  end
+
 end
