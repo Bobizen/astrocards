@@ -6,7 +6,7 @@ class CreateSatellites < ActiveRecord::Migration[7.0]
       t.string :name_fr
       t.string :name_ch_simplified
       t.string :name_ch_pinyin
-      t.string :type
+      t.string :classification
       t.text :summary
       t.text :funfact
 
