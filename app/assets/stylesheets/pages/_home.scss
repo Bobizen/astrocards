@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 .hp-button {
   height: 100vh;
-  background-image: asset-url("Homepage/astrocard-homepage.png");
+  background-image: asset-url("background/astrocard-homepage.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,8 +10,9 @@
 a {
   text-decoration: none;
   color: #fafafa;
-  font-family: AKONY;
-  src: url(fonts/AKONY.ttf) format(truetype);
+  font-family: $kreadon-font;
+  // font-family: AKONY;
+  // src: url(fonts/AKONY.ttf) format(truetype);
 }
 
 .hp-container1 {

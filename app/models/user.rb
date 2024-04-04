@@ -4,12 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-<<<<<<< HEAD
-  after_commit :give_initial_cards, on: [:create]
-=======
   has_one_attached :avatar
-
->>>>>>> master
+  after_commit :give_initial_cards, on: [:create]
 
   # Validation for mandatory acceptance of privacy statement
   validates :privacy_statement, acceptance: true
@@ -24,6 +20,6 @@ class User < ApplicationRecord
   end
 
   def give_initial_cards
-    @user = current_user
+    # @user = current_user
   end
 end

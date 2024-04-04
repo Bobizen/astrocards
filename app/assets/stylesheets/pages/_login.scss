@@ -1,9 +1,10 @@
 // General styles
 .body-login {
-  background-image: asset-url("login/ivana-cajina-asuyh-_ZX54-unsplash.jpg");
+  background-image: asset-url("background/background2.jpg");
   height: 100vh;
   background-size: cover;
-  background-position: center top -100px;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
 }
