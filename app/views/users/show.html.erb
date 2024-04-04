@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <!-- Include any necessary CSS files -->
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+  <header>
+    <!-- Include your site header if applicable -->
+    <h1>User Profile</h1>
+  </header>
+
+  <main>
+    <section class="profile-details">
+      <!-- Avatar -->
+      <div class="avatar">
+        <!-- Display user's avatar -->
+        <!-- You can use an <img> tag to display the avatar image -->
+      </div>
+
+      <!-- Nickname -->
+      <div class="nickname">
+        <label for="nickname">Nickname:</label>
+        <span><%= @user.nickname %></span>
+        <!-- Display user's nickname -->
+        <!-- You can use a <span> or <input> tag to display/edit the nickname -->
+      </div>
+
+      <!-- Birthday -->
+      <div class="birthday">
+        <label for="birthday">Birthday:</label>
+        <span><%= @user.birthdate %></span>
+        <!-- Display user's birthday -->
+        <!-- You can use a <span> or <input> tag to display/edit the birthday -->
+      </div>
+
+      <!-- Email -->
+      <div class="email">
+        <label for="email">Email:</label>
+        <span><%= @user.email %></span>
+        <!-- Display user's email -->
+        <!-- You can use a <span> tag to display the email (not editable) -->
+      </div>
+
+      <!-- Password Change -->
+      <div class="password-change">
+        <h2>Change Password</h2>
+        <span><%= @user.password %></span>
+        <!-- Password change form -->
+        <!-- You can use a <form> with appropriate input fields for old password, new password, and confirmation -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Include your site footer if applicable -->
+    <p>Astrocards</p>
+  </footer>
+</body>
+</html>

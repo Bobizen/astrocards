@@ -1,1 +1,8 @@
 // Specific CSS for your home-page
+.body {
+  height: 100vh;
+  background-image: asset-url("Homepage/astrocard-homepage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
