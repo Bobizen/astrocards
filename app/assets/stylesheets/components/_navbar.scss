@@ -19,10 +19,26 @@
   text-align: center;
 }
 
-.border {
+.bottom-navbar-border {
+  border: transparent;
+  display: inline-block;
   border-radius: 50px; /* Border radius */
-  margin: 20px;
-  background-color: rgba(175, 175, 175, 0.5); /* Semi-transparent gray fill */
-  padding: 10px; /* Add padding for spacing inside the border */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent gray fill */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.40); /* Add a subtle shadow for depth */
+  height: 60px;
+  width: 335px;
+}
+
+.bottom-navbar .bottom-navbar-border i {
+  font-size: 30px; /* 调整图标尺寸 */
+  color: #fafafa;
+  padding: 15px; /* 增加图标与图标之间的间隙 */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bottom-navbar-border i:hover {
+  border: 2px transparent; /* 设置圆框 */
+  border-radius: 50%; /* 设置圆形边框 */
+  background-color: rgba(198, 198, 198, 0.5); /* 设置填充色为白色 */
 }
