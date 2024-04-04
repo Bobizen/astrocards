@@ -1,0 +1,63 @@
+.body-signup {
+  background-image: asset-url("login/ivana-cajina-asuyh-_ZX54-unsplash.jpg");
+  height: 150vh;
+  background-size: cover;
+  background-position: center top -100px;
+  margin: 0;
+  padding: 0;
+}
+
+.container-forgetpw {
+  max-width: 400px;
+  margin: auto;
+}
+
+// --------- avatar --------------------
+.avatar-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0; /* Placeholder background color */
+  border-radius: 50%; /* To create a circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* Adjust font size */
+  color: #757575; /* Adjust font color */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-size: cover; /* Ensure the image covers the container */
+  background-position: center; /* Center the image */
+}
+
+.avatar-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.avatar-preview:hover {
+  background-color: #bdbdbd; /* Adjust hover background color */
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* To create a circle */
+  object-fit: cover;
+}
