@@ -1,0 +1,39 @@
+<section class="profile-details">
+      <!-- Avatar -->
+      <div class="avatar">
+        <!-- Display user's avatar -->
+        <!-- You can use an <img> tag to display the avatar image -->
+      </div>
+
+      <!-- Nickname -->
+      <div class="nickname">
+        <label for="nickname">Nickname:</label>
+        <!-- Display user's nickname -->
+        <%= @user.nickname %>
+        <!-- You can use a <span> or <input> tag to display/edit the nickname -->
+      </div>
+
+      <!-- Birthday -->
+      <div class="birthday">
+        <label for="birthday">Birthday:</label>
+        <%= @user.birthdate %>
+        <!-- Display user's birthday -->
+        <!-- You can use a <span> or <input> tag to display/edit the birthday -->
+      </div>
+
+      <!-- Email -->
+      <div class="email">
+        <label for="email">Email:</label>
+        <%= @user.email %>
+        <!-- Display user's email -->
+        <!-- You can use a <span> tag to display the email (not editable) -->
+      </div>
+
+      <!-- Password Change -->
+      <div class="password-change">
+        <h2>Change Password</h2>
+        <!-- Password change form -->
+        <!-- You can use a <form> with appropriate input fields for old password, new password, and confirmation -->
+      </div>
+    </section>
+    <% console %>
