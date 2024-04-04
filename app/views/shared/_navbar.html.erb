@@ -14,10 +14,8 @@
         <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
           </a>
-          <li class="nav-item active">
-              <%= link_to "Profile", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
+              <%= link_to "Profile", "#", class: "dropdown-item" %>
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
@@ -35,9 +33,9 @@
 
 <div class="bottom-navbar">
   <div class="bottom-navbar-border">
-    <i class="fa-solid fa-inbox" style="color: #ffffff;"></i>
-    <i class="fa-solid fa-house" style="color: #fafafa;"></i>
-    <i class="fa-solid fa-certificate" style="color: #fafafa;"></i>
-    <i class="fa-solid fa-meteor" style="color: #fafafa;"></i>
+    <a href="inbox.html"><i class="fa-solid fa-inbox" style="color: #ffffff;"></i></a>
+    <a href="home.html"><i class="fa-solid fa-house" style="color: #fafafa;"></i></a>
+    <a href="certificate.html"><i class="fa-solid fa-certificate" style="color: #fafafa;"></i></a>
+    <a href="meteor.html"><i class="fa-solid fa-meteor" style="color: #fafafa;"></i></a>
   </div>
 </div>

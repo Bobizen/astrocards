@@ -1,10 +1,12 @@
 <div class="hp-button">
   <%= render "shared/navbar" %>
-  <i class="fas fa-home"></i> Collection<br>
-  <i class="fas fa-bell"></i> Gallery<br>
-  <i class="fas fa-user"></i> Ranking<br>
+  <div id="hp-container">
+    <p class="hp-text1"><a href="collection.html">Collection</a></p>
+  </div>
+  <div id="hp-container">
+    <p class="hp-text2"><a href="gallery.html">Gallery</a></p>
+  </div>
+  <div id="hp-container">
+    <p class="hp-text3"><a href="ranking.html">Ranking</a></p>
+  </div>
 </div>
-
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-  <%= @response %>
