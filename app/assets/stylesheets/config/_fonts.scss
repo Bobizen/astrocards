@@ -1,18 +1,16 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
+$body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 @font-face {
   font-family: "Akony";
-  src: font-url('app/assets/fonts/akony.ttf') format('truetype');
-  src: font-url('akony.woff2') format('woff2'),
-       font-url('/assets/fonts/akony.woff') format('woff'),
-       font-url('/assets/fonts/akony.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+  src: font-url('AKONY.otf');
+  src: font-url('AKONY.woff') format('woff'),
+       font-url('AKONY.ttf') format('truetype')
 }
-$my-font: "Akony", "Open sans";
+$akony-font: "Akony";
