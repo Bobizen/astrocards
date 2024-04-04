@@ -14,3 +14,11 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
        font-url('AKONY.ttf') format('truetype')
 }
 $akony-font: "Akony";
+
+@font-face {
+  font-family: "Kreadon";
+  src: font-url('Kreadon-Regular.otf');
+  src: font-url('Kreadon-Regular.woff2') format('woff'),
+       font-url('Kreadon-Regular.ttf') format('truetype')
+}
+$kreadon-font: "Kreadon";

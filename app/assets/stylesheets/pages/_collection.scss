@@ -1,8 +1,21 @@
+.collection-bg {
+  height: 100vh;
+  background-image: asset-url("background/background2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.collection {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px);
+}
+
 .collection-summary {
-  background-color: black;
+  // background-color: black;
   display: flex;
   border-bottom: 1px solid white;
-  height: 100px;
 }
 
 .collection-summary-block {
@@ -15,13 +28,14 @@
   color: white;
   align-content: flex-start;
   padding-left: 1rem;
+  font-size: 14px;
 }
 
 .collection-summary-block .content {
   flex-grow: 0.9;
   text-align: center;
   color: white;
-  background-color: grey;
+  // background-color: grey;
 }
 
 .border-left {
@@ -30,11 +44,13 @@
 
 
 .collection-listing {
-
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  color: white;
 }
 
 .collection-missing {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-
+  margin-bottom: 5.5rem;
+  color: white;
 }
