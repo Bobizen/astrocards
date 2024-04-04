@@ -1,12 +1,29 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  color: white;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 200px;
+}
+
+.bottom-navbar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.border {
+  border-radius: 50px; /* Border radius */
+  margin: 20px;
+  background-color: rgba(175, 175, 175, 0.5); /* Semi-transparent gray fill */
+  padding: 10px; /* Add padding for spacing inside the border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
 }
