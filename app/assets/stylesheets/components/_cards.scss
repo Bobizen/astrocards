@@ -1,0 +1,54 @@
+.listing-cards {
+
+}
+
+.l-card {
+  display: flex;
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  margin-bottom: 0.2rem;
+  font-family: $kreadon-font;
+}
+
+.l-card img {
+  height: 80px;
+  width: 80px;
+}
+
+.l-card-content {
+  padding-left: 0.3rem;
+  flex-grow: 1;
+  padding-right: 0.3rem;
+}
+
+.l-card-content .title {
+  display: flex;
+  justify-content: space-between;
+  color: white
+}
+
+.l-card-content .infos {
+  font-size: 12px;
+  color: white;
+}
+
+.missing-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.m-card {
+  flex-shrink: 0;
+  margin-right: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0.3rem;
+}
+
+.m-card img {
+  height: 80px;
+  width: 80px;
+}

@@ -1,24 +1,60 @@
-<div class="container">
-  <div class="collection-summary">
-    <div class="collection-summary-block">
-      <div class="title">
-        <p>Title 1</p>
+<div class="collection-bg">
+  <%= render "shared/navbar" %>
+  <div class="container collection">
+    <div class="collection-summary">
+      <div class="collection-summary-block">
+        <div class="title">
+          <h6>Cards</h6>
+        </div>
+        <div class="content">
+          <p>101</p>
+        </div>
       </div>
-      <div class="content">
-        <h3>101</h3>
+      <div class="collection-summary-block">
+        <div class="title border-left">
+            <h6>Missing</h6>
+          </div>
+          <div class="content border-left">
+            <p>202</p>
+          </div>
       </div>
     </div>
-    <div class="collection-summary-block">
-      <div class="title border-left">
-          <p>Title 2</p>
+    <div class="collection-listing">
+      <p>Title</p>
+      <div class="listing-cards">
+        <div class="l-card">
+          <%= image_tag asset_path('objects/astro card-P 0403-08.png') %>
+          <div class="l-card-content">
+            <div class="title">
+              <div><strong>Jupiter</strong></div>
+              <div>Planet</div>
+            </div>
+            <div class="infos">
+              Hello from Jupiter
+            </div>
+          </div>
         </div>
-        <div class="content border-left">
-          <h3>202</h3>
+        <div class="l-card">
+
         </div>
+      </div>
     </div>
-  </div>
-  <div class="collection-listing">
-  </div>
-  <div class="collection-missing">
+    <div class="collection-missing">
+      <p>Missing cards</p>
+      <div class="missing-cards">
+        <div class="m-card">
+          <%= image_tag asset_path('objects/unknow card.png') %>
+        </div>
+        <div class="m-card">
+          <%= image_tag asset_path('objects/unknow card.png') %>
+        </div>
+        <div class="m-card">
+          <%= image_tag asset_path('objects/unknow card.png') %>
+        </div>
+        <div class="m-card">
+          <%= image_tag asset_path('objects/unknow card.png') %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
