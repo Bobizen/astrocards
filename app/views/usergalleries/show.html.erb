@@ -1,0 +1,17 @@
+<div class="gallery-bg">
+  <%= render "shared/navbar" %>
+  <div class="gallery">
+    <div class="title">
+      My Gallery
+    </div>
+    <div class="content">
+      <% @cards_in_gallery.each do |gallerycard| %>
+      <% usercard = Usercard.find(gallerycard.usercard_id) %>
+      <% card = Card.find(usercard.card_id) %>
+      <% object = card.object %>
+        <div class="g-card">
+          <%= image_tag "objects/#{object.image_path}" %>
+        </div>
+      <% end %>
+    </div>
+</div>

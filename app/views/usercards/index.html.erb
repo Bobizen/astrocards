@@ -4,56 +4,58 @@
     <div class="collection-summary">
       <div class="collection-summary-block">
         <div class="title">
-          <h6>Cards</h6>
+          Cards
         </div>
         <div class="content">
           <% nbusercard = Usercard.where(user: current_user).count %>
-          <p><%= nbusercard %></p>
+          <%= nbusercard %>
         </div>
       </div>
       <div class="collection-summary-block">
         <div class="title border-left">
-            <h6>Missing</h6>
-          </div>
-          <div class="content border-left">
-            <p><%= (Card.count - nbusercard ) %></p>
-          </div>
+            Missing
+        </div>
+        <div class="content border-left">
+          <%= (Card.count - nbusercard ) %>
+        </div>
       </div>
     </div>
     <div class="collection-listing">
-      <p>Title</p>
+      <p class="collection-title">Title</p>
       <div class="listing-cards">
-        <div class="l-card">
-          <%= image_tag asset_path('objects/astro card-P 0403-08.png') %>
-          <div class="l-card-content">
+        <% @usercards.each do |usercard| %>
+          <div class="l-card">
+            <% card = Card.find(usercard.card_id) %>
+            <% object = card.object %>
+            <%= image_tag "objects/#{object.image_path}" %>
+            <div class="l-card-content">
             <div class="title">
-              <div><strong>Jupiter</strong></div>
-              <div>Planet</div>
+              <div><strong><%= object.name_en %></strong></div>
+              <div><%= card.object_type %></div>
             </div>
             <div class="infos">
-              Hello from Jupiter
+              <%= object.summary %>
             </div>
           </div>
-        </div>
-        <div class="l-card">
-
-        </div>
+          </div>
+        <% end %>
       </div>
-    </div>
-    <div class="collection-missing">
-      <p>Missing cards</p>
-      <div class="missing-cards">
-        <div class="m-card">
-          <%= image_tag asset_path('objects/unknow card.png') %>
-        </div>
-        <div class="m-card">
-          <%= image_tag asset_path('objects/unknow card.png') %>
-        </div>
-        <div class="m-card">
-          <%= image_tag asset_path('objects/unknow card.png') %>
-        </div>
-        <div class="m-card">
-          <%= image_tag asset_path('objects/unknow card.png') %>
+      </div>
+      <div class="collection-missing">
+        <p>Missing cards</p>
+        <div class="missing-cards">
+          <div class="m-card">
+            <%= image_tag asset_path('objects/unknow card.png') %>
+          </div>
+          <div class="m-card">
+            <%= image_tag asset_path('objects/unknow card.png') %>
+          </div>
+          <div class="m-card">
+            <%= image_tag asset_path('objects/unknow card.png') %>
+          </div>
+          <div class="m-card">
+            <%= image_tag asset_path('objects/unknow card.png') %>
+          </div>
         </div>
       </div>
     </div>
