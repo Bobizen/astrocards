@@ -19,7 +19,16 @@ class User < ApplicationRecord
     errors.add :password, 'must include at least one lowercase letter, one uppercase letter, one digit, and one special character'
   end
 
+  # when the user is created, it gives to the user 4 cards randomly
+  # TODO: select among all the cards but the bonus ones
   def give_initial_cards
-    # @user = current_user
+    @user = self
+    @cards = Card.order("RANDOM()").limit(4)
+    @cards.each do |card|
+      usercard = Usercard.new
+      usercard.user = @user
+      usercard.card = card
+      usercard.save
+    end
   end
 end
