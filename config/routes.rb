@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :usercards, only: [:index]
+  get 'usercards/detail', to: 'usercards#detail', as: 'usercards/detail'
 end
