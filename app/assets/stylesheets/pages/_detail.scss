@@ -58,15 +58,15 @@
   height: auto; /* Maintain aspect ratio */
 }
 
+.display-cards-pic-back img{
+  width: 100%; /* Set image width to fill parent container */
+  height: auto; /* Maintain aspect ratio */
+}
+
 /* Info section styling */
 .display-cards-info {
   width: 100%; /* Info section width */
 }
-
-/* Paragraph styling in info section */
-// .display-cards-info p {
-//   margin-bottom: 10px;
-// }
 
 /* Responsive image size adjustment */
 @media screen and (max-width: 768px) {
@@ -85,4 +85,52 @@
 .horizontal-line {
   border-top: 1px solid #ffffff; /* Set color of the horizontal line */
   margin: 20px 0; /* Adjust margin as needed */
+}
+
+.btn {
+  color: white;
+}
+
+.btn:focus, .btn:active {
+  color: white;
+}
+
+/* Flip card container */
+.flip-container {
+  perspective: 1000px; /* Add perspective for the 3D effect */
+}
+  /* flip the pane when hovered */
+  .flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* Card front and back */
+.flip-card-front,
+.flip-card-back {
+  position: absolute; /* Set position to absolute */
+  // top: 0; /* Align to the top */
+  // left: 0; /* Align to the left */
+  // width: 100%; /* Set width to fill parent container */
+  // height: 100%; /* Set height to fill parent container */
+  backface-visibility: hidden; /* Hide the back face by default */
+}
+
+/* Back face of the card */
+.flip-card-back {
+  transform: rotateY(180deg); /* Initially rotate to show the back face */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flip-card-front {
+  z-index: 2;
 }

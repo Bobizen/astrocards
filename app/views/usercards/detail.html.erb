@@ -1,56 +1,100 @@
 <div class="display-cards-bg">
   <%= render "shared/navbar" %>
-  <div class="display-cards-card container">
-    <div class="row">
-      <!--card front-->
-      <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <p class="display-cards-title">Card of today</p>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <% card = Card.find(@card.id) %>
-        <% object = card.object %>
-        <div class="d-flex flex-column align-items-center justify-content-center">
-          <div class="display-cards-pic">
-            <%= image_tag "objects/#{object.image_path}" %>
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <% card = Card.find(@card.id) %>
+      <% object = card.object %>
+      <!-- Card front -->
+      <div class="flip-card-front">
+        <div class="display-cards-card container">
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+              <p class="display-cards-title">Card of today</p>
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+              <div class="d-flex flex-column align-items-center justify-content-center">
+                <div class="display-cards-pic">
+                  <%= image_tag "objects/#{object.image_path}" %>
+                </div>
+                <p style="font-size: 18px; font-family: AKONY;"><%= object.name_en %></p>
+                <div class="display-cards-info">
+                  <div class="horizontal-line"></div>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <p style="text-align: left;">Distance from Earth:</p>
+                      <strong style="text-align: left;">628 million km</strong>
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div>
+                      <p style="text-align: left;">Revolution:</p>
+                      <strong style="text-align: left;">11.86 Earth years</strong>
+                    </div>
+                  </div>
+                  <div class="horizontal-line"></div>
+                  <p style="text-align: left;">Type of planet: <strong>Gaseous</strong></p>
+                  <p style="text-align: left;">Main moons: <strong>Io, Europa, Ganymede, Callisto</strong></p>
+                  <div class="horizontal-line"></div>
+                  <div class="display-cards-buttons d-flex justify-content-between">
+                    <button class="btn flip-button">
+                      <i class="fas fa-sync-alt"></i> Flip card
+                    </button>
+                    <button class="btn">+ Add to gallery</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p style="font-size: 18px; font-family: AKONY;"><%= object.name_en %></p>
-          <div class="display-cards-info">
-            <div class="horizontal-line"></div>
-            <div class="d-flex justify-content-between">
-              <div>
-                <p style="text-align: left;">Distance from Earth:</p>
-                <strong style="text-align: left;">628 million km</strong>
+        </div>
+      </div>
+
+      <!-- Card back -->
+      <div class="flip-card-back">
+        <div class="display-cards-card container">
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+              <p class="display-cards-title"><%= object.name_en %> Information</p>
+            </div>
+            <div class="display-cards-info">
+              <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="d-flex justify-content-between">
+                  <div class="display-cards-pic-back">
+                    <%= image_tag "objects/#{object.image_path}" %>
+                  </div>
+                  <div class="vertical-line"></div>
+                  <div>
+                    <p>Distance from Earth:</p>
+                    <strong>628 million km</strong>
+                  </div>
+                </div>
               </div>
-              <div class="vertical-line"></div>
-              <div>
-                <p style="text-align: left;">Revolution:</p>
-                <strong style="text-align: left;">11.86 Earth years</strong>
+              <div class="horizontal-line"></div>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p>Distance from Earth:</p>
+                  <strong>628 million km</strong>
+                  <p>Type of planet:</p>
+                  <strong>Gaseous</strong>
+                </div>
+                <div class="vertical-line"></div>
+                <div>
+                  <p>Revolution:</p>
+                  <strong>11.86 Earth years</strong>
+                </div>
+              </div>
+              <div class="horizontal-line"></div>
+              <p style="text-align: left;">Description:</p>
+              <p style="text-align: left;">Detail information about the planet goes here.</p>
+              <div class="horizontal-line"></div>
+              <div class="display-cards-buttons d-flex justify-content-between">
+                <button class="btn flip-button">
+                  <i class="fas fa-sync-alt"></i> Flip card
+                </button>
+                <button class="btn">+ Add to gallery</button>
               </div>
             </div>
-            <div class="horizontal-line"></div>
-            <p style="text-align: left;">Type of planet: <strong>Gaseous</strong></p>
-            <p style="text-align: left;">Main moons: <strong>Io, Europa, Ganymede, Callisto</strong></p>
-            <div class="horizontal-line"></div>
-            <div class="display-cards-buttons d-flex justify-content-between">
-              <button class="btn btn-primary flip-button">
-                <i class="fas fa-sync-alt"></i> Flip card
-              </button>
-              <button class="btn btn-primary">+ Add to gallery</button>
-            </div>
-            <%# <!-- card back -->
-            <div class="flip-card-back">
-              <p>This is the back of the flip card.</p>
-            </div> %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<%# <script>
-  // JavaScript for flipping the card
-  document.querySelector('.flip-button').addEventListener('click', function() {
-    document.querySelector('.flip-card-back').classList.toggle('flip-visible');
-  });
-</script> %>
