@@ -1,6 +1,5 @@
-.listing-cards {
-
-}
+// collection card
+.listing-cards {}
 
 .l-card {
   display: flex;
@@ -51,4 +50,15 @@
 .m-card img {
   height: 80px;
   width: 80px;
+}
+
+// gallery card
+.g-card {
+  height: 150px;
+  width: 150px;
+}
+
+.g-card img {
+  height: 150px;
+  width: 150px;
 }
