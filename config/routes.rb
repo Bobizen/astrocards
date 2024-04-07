@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     resources :usergallerycards, only: [:new, :create]
   end
 
+  get 'usercards/detail', to: 'usercards#detail', as: 'usercards/detail'
 end
