@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/privacy', to: 'pages#privacy_statement', as: 'privacy_statement'
   get '/profile', to: 'users#profile', as: 'profile'
   get '/home', to: 'users#home', as: 'afterloginhp'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
