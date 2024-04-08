@@ -1,8 +1,8 @@
 <div class="display-cards-bg">
   <%= render "shared/navbar" %>
-  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flip-container">
     <div class="flipper">
-      <% card = Card.find(@card.id) %>
+      <% card = Card.find(@card.card_id) %>
       <% object = card.object %>
       <!-- Card front -->
       <div class="flip-card-front">
@@ -48,9 +48,10 @@
                     <button class="btn flip-button">
                       <i class="fas fa-sync-alt"></i> Flip card
                     </button>
-                    <button class="btn">
-                      <i class="fas fa-plus"></i> Add to gallery
-                    </button>
+                    <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
+                      <%= f.input :id, as: :hidden %>
+                      <%= f.submit "+ Add to gallery", class: 'btn' %>
+                    <% end %>
                   </div>
                 </div>
               </div>

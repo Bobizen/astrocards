@@ -1,0 +1,27 @@
+.ranking-bg {
+  height: 100vh;
+  background-image: asset-url("background/background2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ranking {
+  display: flex;
+  flex-direction: column;
+  // max-height: calc(100vh - 56px);
+  max-height: calc(100vh - 56px);
+}
+
+.ranking-listing {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  color: white;
+  overflow: scroll;
+  // max-height: calc(100vh - 200px);
+}
+
+.ranking-title {
+  padding-left: 1rem;
+}

@@ -1,6 +1,8 @@
 // collection card
 .listing-cards {}
 
+.ranking-cards {}
+
 .l-card {
   display: flex;
   padding: 0.3rem;
@@ -61,4 +63,8 @@
 .g-card img {
   height: 150px;
   width: 150px;
+}
+
+.r-card {
+
 }
