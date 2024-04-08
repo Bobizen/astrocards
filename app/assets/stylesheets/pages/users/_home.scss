@@ -1,5 +1,5 @@
 $size : 50px;
-$items : 5;
+$items : 6;
 $transition : .5s;
 $bounce : cubic-bezier(.3,1.4,.5,.9);
 $color-inner : gold;
@@ -82,7 +82,7 @@ nav {
 
 			&:hover {
 				background: shade($color, 90%);
-				color: $color;
+				color: black;
 				transition-delay: 0s;
 
 			}
