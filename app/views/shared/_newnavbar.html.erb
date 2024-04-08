@@ -1,19 +1,26 @@
 <nav class="top-right ">
-	<a class="disc l1">
-		<div>Messages</div>
-	</a>
+	<%= link_to "Log out", destroy_user_session_path,
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'disc l1' %>
 	<a class="disc l2">
-		<div>Photos</div>
+		<div>Gallery Ranking</div>
 	</a>
 	<a class="disc l3">
-		<div>Profile</div>
+		<div>My Collection</div>
 	</a>
 	<a class="disc l4">
-		<div>Likes</div>
+		<div>My Gallery</div>
 	</a>
-	<a class="disc l5 toggle">
-		Menu
+  <a class="disc l5">
+		<div>Profile</div>
 	</a>
+  <% if user_signed_in? %>
+    <% if current_user.avatar.attached? %>
+      <%= image_tag url_for(current_user.avatar.key), class: 'avatar-small disc l6 toggle' %>
+    <% else %>
+      <%= image_tag "objects/unknow card.png", alt:'Profile Picture', class: 'avatar-small disc l6 toggle' %>
+    <% end %>
+  <% else %>
+  <% end %>
 </nav>
 
 
