@@ -6,4 +6,8 @@ class UsercardsController < ApplicationController
   def detail
     @card = Usercard.where(user: current_user).first
   end
+
+  def bonuscard
+    @card = Usercard.where(user: current_user).first
+  end
 end

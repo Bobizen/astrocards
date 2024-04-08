@@ -6,17 +6,21 @@
       <% object = card.object %>
       <!-- Card front -->
       <div class="flip-card-front">
-        <div class="display-cards-card container">
+        <div class="display-cards-card-bc container">
           <div class="row">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
-              <p class="display-cards-title">Card of today</p>
+              <p class="display-cards-title">Bonus Card</p>
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-center">
               <div class="d-flex flex-column align-items-center justify-content-center">
                 <div class="display-cards-pic">
                   <%= image_tag "objects/#{object.image_path}" %>
                 </div>
-                <p style="font-size: 18px; font-family: AKONY;"><%= object.name_en %></p>
+                <p style="font-size: 18px; font-family: AKONY;">
+                  <i class="fas fa-star"></i>
+                  <%= object.name_en %>
+                  <i class="fas fa-star"></i>
+                </p>
                 <div class="display-cards-info">
                   <div class="horizontal-line"></div>
                   <div class="d-flex justify-content-between">
@@ -61,7 +65,7 @@
 
       <!-- Card back -->
       <div class="flip-card-back">
-        <div class="display-cards-card container">
+        <div class="display-cards-card-bc container">
           <div class="row">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
               <p class="display-cards-title"><%= object.name_en %> Information</p>
