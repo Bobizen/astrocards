@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   def password_complexity
     return unless password.present? && !password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W\_]).{8,}$/)
-    errors.add :password, 'must include at least one lowercase letter, one uppercase letter, one digit, and one special character'
+    errors.add :password, 'must include at least one lowercase letter, one uppercase letter, one digit, and one special character.'
   end
 
   # when the user is created, it gives to the user 4 cards randomly
