@@ -13,4 +13,9 @@ class UsergalleriesController < ApplicationController
     @gallery = Usergallerie.find(params[:id])
     @cards_in_gallery = Usergallerycard.where(usergallerie: @gallery)
   end
+
+  def ranking
+    @bestrank = 1
+    @ranking = 2
+  end
 end

@@ -1,9 +1,11 @@
 class UsercardsController < ApplicationController
   def index
+    @usergallery = Usergallerie.where(user: current_user).first
     @usercards = Usercard.where(user: current_user)
   end
 
   def detail
-    @card = Usercard.where(user: current_user).first
+    @usergallery = Usergallerie.where(user: current_user).first
+    @card = Usercard.find(params[:usercard_id])
   end
 end
