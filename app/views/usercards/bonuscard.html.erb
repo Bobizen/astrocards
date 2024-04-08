@@ -1,22 +1,26 @@
 <div class="display-cards-bg">
   <%= render "shared/navbar" %>
-  <div class="flip-container">
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
     <div class="flipper">
-      <% card = Card.find(@card.card_id) %>
+      <% card = Card.find(@card.id) %>
       <% object = card.object %>
       <!-- Card front -->
       <div class="flip-card-front">
-        <div class="display-cards-card container">
+        <div class="display-cards-card-bc container">
           <div class="row">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
-              <p class="display-cards-title">Card of today</p>
+              <p class="display-cards-title">Bonus Card</p>
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-center">
               <div class="d-flex flex-column align-items-center justify-content-center">
                 <div class="display-cards-pic">
                   <%= image_tag "objects/#{object.image_path}" %>
                 </div>
-                <p style="font-size: 18px; font-family: AKONY;"><%= object.name_en %></p>
+                <p style="font-size: 18px; font-family: AKONY;">
+                  <i class="fas fa-star"></i>
+                  <%= object.name_en %>
+                  <i class="fas fa-star"></i>
+                </p>
                 <div class="display-cards-info">
                   <div class="horizontal-line"></div>
                   <div class="d-flex justify-content-between">
@@ -48,10 +52,9 @@
                     <button class="btn flip-button">
                       <i class="fas fa-sync-alt"></i> Flip card
                     </button>
-                    <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
-                      <%= f.input :id, as: :hidden %>
-                      <%= f.submit "+ Add to gallery", class: 'btn' %>
-                    <% end %>
+                    <button class="btn">
+                      <i class="fas fa-plus"></i> Add to gallery
+                    </button>
                   </div>
                 </div>
               </div>
@@ -62,7 +65,7 @@
 
       <!-- Card back -->
       <div class="flip-card-back">
-        <div class="display-cards-card container">
+        <div class="display-cards-card-bc container">
           <div class="row">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
               <p class="display-cards-title"><%= object.name_en %> Information</p>

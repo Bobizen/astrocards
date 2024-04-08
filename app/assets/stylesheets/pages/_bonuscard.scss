@@ -1,5 +1,5 @@
 /* Center align everything */
-.display-cards-card {
+.display-cards-card-bc {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@
   margin: 0 10px; /* Adjust space between buttons */
   border: none; /* Remove border */
   background-color: transparent; /* Remove background color */
-  padding: 20px; /* Remove padding */
+  padding: 10px; /* Remove padding */
   outline: none; /* Remove outline */
 }
 
@@ -34,8 +34,8 @@
 }
 
 /* Card container styling */
-.display-cards-card {
-  background-color: rgba(250, 250, 250, 0.3);
+.display-cards-card-bc {
+  background-color: transparent;
   box-sizing: border-box;
   width: 80%; /* Fixed width or percentage */
   margin: auto;
@@ -44,6 +44,7 @@
   font-family: $kreadon-font;
   margin-top: 50px;
   border-radius: 20px; /* Border radius */
+  border: 5px solid white;
 }
 
 /* Title styling */

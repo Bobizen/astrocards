@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   get 'usercards/detail/:usercard_id', to: 'usercards#detail', as: 'usercards_detail'
 
+  get 'usercards/detail', to: 'usercards#detail', as: 'usercards/detail'
+  get 'usercards/bonus', to: 'usercards#bonuscard', as: 'usercards/bonus'
+
 end
