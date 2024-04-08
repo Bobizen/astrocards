@@ -24,23 +24,22 @@
       <p class="collection-title">Title</p>
       <div class="listing-cards">
         <% @usercards.each do |usercard| %>
-          <%# <%= link_to usercards_detail_path(usercard.id) do %>
-
-          <div class="l-card">
-            <% card = Card.find(usercard.card_id) %>
-            <% object = card.object %>
-            <%= image_tag "objects/#{object.image_path}" %>
-            <div class="l-card-content">
-            <div class="title">
-              <div><strong><%= object.name_en %></strong></div>
-              <div><%= card.object_type %></div>
+          <%= link_to usercards_detail_path(usercard.id) do %>
+            <div class="l-card">
+              <% card = Card.find(usercard.card_id) %>
+              <% object = card.object %>
+              <%= image_tag "objects/#{object.image_path}" %>
+              <div class="l-card-content">
+              <div class="title">
+                <div><strong><%= object.name_en %></strong></div>
+                <div><%= card.object_type %></div>
+              </div>
+              <div class="infos">
+                <%= object.summary %>
+              </div>
             </div>
-            <div class="infos">
-              <%= object.summary %>
             </div>
-          </div>
-          </div>
-          <%# <% end %>
+          <% end %>
         <% end %>
       </div>
       </div>
