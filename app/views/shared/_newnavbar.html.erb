@@ -15,7 +15,7 @@
 	</a>
   <% if user_signed_in? %>
     <% if current_user.avatar.attached? %>
-      <%= image_tag url_for(current_user.avatar.key), class: 'avatar-small disc l6 toggle' %>
+      <%= image_tag url_for(current_user.avatar), class: 'avatar-small disc l6 toggle' %>
     <% else %>
       <%= image_tag "objects/unknow card.png", alt:'Profile Picture', class: 'avatar-small disc l6 toggle' %>
     <% end %>
