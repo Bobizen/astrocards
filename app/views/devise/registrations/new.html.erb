@@ -14,8 +14,9 @@
 
               <div class="avatar-container">
                 <div class="avatar-preview" id="avatar-preview">Upload Your Avatar</div>
-                <%= f.file_field :avatar, class: "avatar-input", accept: "image/*" %>
+                <%= f.file_field :avatar, class: "avatar-input", accept: "image/*",  id: 'avatar' %>
               </div>
+
 
           <div class="form-inputs">
             <%= f.input :email,
