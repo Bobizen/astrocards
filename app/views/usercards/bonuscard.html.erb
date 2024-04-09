@@ -1,6 +1,7 @@
-<div class="display-cards-bg">
-  <%= render "shared/navbar" %>
+<div class="display-cards-bg-bc">
+  <%= render "shared/newnavbar" %>
   <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <%= render "shared/logo" %>
     <div class="flipper">
       <% card = Card.find(@card.id) %>
       <% object = card.object %>
@@ -32,7 +33,7 @@
                       </p>
                     </div>
                     <div class="vertical-line"></div>
-                    <div>
+                    <div style="width: 50%;">
                       <p style="text-align: left;">Revolution:</p>
                       <p>
                         <strong style="text-align: left;"><%= object.revolution %></strong>
@@ -77,7 +78,7 @@
                     <%= image_tag "objects/#{object.image_path}" %>
                   </div>
                   <div class="vertical-line"></div>
-                  <div>
+                  <div style="width: 50%;">
                     <p>Distance from Earth:</p>
                     <p>
                       <strong style="text-align: left;"><%= object.revolution %></strong>
@@ -99,7 +100,7 @@
                   </p>
                 </div>
                 <div class="vertical-line"></div>
-                <div>
+                <div style="width: 50%;">
                   <p>Revolution:</p>
                   <p>
                     <strong style="text-align: left;"><%= object.revolution %></strong>

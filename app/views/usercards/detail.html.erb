@@ -1,6 +1,7 @@
 <div class="display-cards-bg">
-  <%= render "shared/navbar" %>
+  <%= render "shared/newnavbar" %>
   <div class="flip-container">
+  <%= render "shared/logo" %>
     <div class="flipper">
       <% card = Card.find(@card.card_id) %>
       <% object = card.object %>
@@ -28,7 +29,7 @@
                       </p>
                     </div>
                     <div class="vertical-line"></div>
-                    <div>
+                    <div style="width: 50%;">
                       <p style="text-align: left;">Revolution:</p>
                       <p>
                         <strong style="text-align: left;"><%= object.revolution %></strong>
@@ -50,7 +51,7 @@
                     </button>
                     <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
                       <%= f.input :id, as: :hidden %>
-                      <%= f.submit "+ Add to gallery", class: 'btn' %>
+                      <%= f.submit "+ Add to gallery", class: 'm-0 btn' %>
                     <% end %>
                   </div>
                 </div>
@@ -74,7 +75,7 @@
                     <%= image_tag "objects/#{object.image_path}" %>
                   </div>
                   <div class="vertical-line"></div>
-                  <div>
+                  <div style="width: 50%;">
                     <p>Distance from Earth:</p>
                     <p>
                       <strong style="text-align: left;"><%= object.revolution %></strong>
@@ -96,7 +97,7 @@
                   </p>
                 </div>
                 <div class="vertical-line"></div>
-                <div>
+                <div style="width: 50%;">
                   <p>Revolution:</p>
                   <p>
                     <strong style="text-align: left;"><%= object.revolution %></strong>
@@ -112,9 +113,10 @@
                 <button class="btn flip-card-button">
                   <i class="fas fa-sync-alt"></i> Flip card
                 </button>
-                <button class="btn">
-                  <i class="fas fa-plus"></i> Add to gallery
-                </button>
+                <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
+                  <%= f.input :id, as: :hidden %>
+                  <%= f.submit "+ Add to gallery", class: 'm-0 btn' %>
+                <% end %>
               </div>
             </div>
           </div>
