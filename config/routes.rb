@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get 'usergalleries/ranking', to: 'usergalleries#ranking', as: 'ranking'
+  post 'usergalleries/share', to: 'usergalleries#share'
   get 'usercards/bonus', to: 'usercards#bonuscard', as: 'usercards_bonus'
   # get 'usercards/detail', to: 'usercards#detail', as: 'usercards_detail'
   get 'usercards/detail/:usercard_id', to: 'usercards#detail', as: 'usercards_detail'
@@ -24,6 +25,6 @@ Rails.application.routes.draw do
     resources :usergallerycards, only: [:new, :create]
   end
 
-
+  resources :usersupports, only: [:create]
 
 end

@@ -21,4 +21,10 @@ class UsergalleriesController < ApplicationController
     @bestrank = 1
     @ranking = 2
   end
+
+  def share
+    @usergallery = Usergallerie.find(params[:id])
+    @usergallery.shared = (params[:status] == true)
+    @usergallery.save
+  end
 end
