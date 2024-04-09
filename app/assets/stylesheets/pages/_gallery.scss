@@ -7,9 +7,11 @@
 }
 
 .gallery {
-  // display: flex;
-  max-height: calc(100vh - 56px);
-  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  // max-height: calc(100vh - 56px);
+  max-height: 100vh;
+  // margin-left: 1rem;
 }
 
 .gallery .title {
@@ -20,6 +22,7 @@
 }
 
 .gallery .content {
+  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
