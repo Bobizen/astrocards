@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   text-align: center; /* Center text */
+  overflow: scroll;
 }
 
 /* Flip card and +Add to gallery on left and right */
@@ -26,7 +27,7 @@
 
 /* Set background image properties */
 .display-cards-bg {
-  height: 100vh;
+  height: 135vh;
   background-image: asset-url("background/background2.jpg");
   background-size: cover;
   background-position: center;
