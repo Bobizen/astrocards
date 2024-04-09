@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_one_attached :avatar
   after_commit :give_initial_cards, on: [:create]
 
+  has_many :usercards, dependent: :destroy
+  has_one :usergallerie, dependent: :destroy
+
   # Validation for mandatory acceptance of privacy statement
   validates :privacy_statement, acceptance: true
   # Custom validation for password complexity
