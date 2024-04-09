@@ -14,6 +14,7 @@ class UsergalleriesController < ApplicationController
   def show
     @gallery = Usergallerie.find(params[:id])
     @cards_in_gallery = Usergallerycard.where(usergallerie: @gallery)
+    @supports = Gallerysupport.all
   end
 
   def ranking

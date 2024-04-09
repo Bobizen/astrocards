@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Star: Sun
-sun = Star.create(name_en: "Sun", name_fr: "soleil", image_path: "venus.png", classification: "yellow dwarf", revolution: "N/A", summary: "The Sun is a big, hot star in space that shines brightly in our sky during the day. It's like a giant ball of fire, but it's not really on fire like a campfire. Instead, it's made up of super-hot gas called plasma. The Sun is so big that it's much larger than any planet, including Earth!", funfact: "Ever noticed the Sun's got some funky pockmarks on its face? Yep, those are sunspots! They're like the Sun's version of zits, but don't worry, they're still super hot! And hey, the Sun's got some wild moves too - it throws these epic tantrums called solar flares and solar storms. But no need to panic, Earth's got its cosmic sunscreen, aka the atmosphere, keeping us safe from the Sun's shenanigans!")
+sun = Star.create(name_en: "Sun", name_fr: "soleil", image_path: "sun.png", classification: "yellow dwarf", revolution: "N/A", summary: "The Sun is a big, hot star in space that shines brightly in our sky during the day. It's like a giant ball of fire, but it's not really on fire like a campfire. Instead, it's made up of super-hot gas called plasma. The Sun is so big that it's much larger than any planet, including Earth!", funfact: "Ever noticed the Sun's got some funky pockmarks on its face? Yep, those are sunspots! They're like the Sun's version of zits, but don't worry, they're still super hot! And hey, the Sun's got some wild moves too - it throws these epic tantrums called solar flares and solar storms. But no need to panic, Earth's got its cosmic sunscreen, aka the atmosphere, keeping us safe from the Sun's shenanigans!")
 Card.create(object: sun)
 
 # Planets
@@ -36,5 +36,11 @@ neptune = Planet.create(name_en: "neptune", name_fr: "neptune", star_id: sun.id,
 Card.create(object: neptune)
 
 # Satellites
-moon = Satellite.create(name_en: "moon", name_fr: "lune", planet_id: earth.id, summary: "The Moon is Earth's only natural satellite, lighting up our night sky with its gentle glow. It's covered in craters and plains, evidence of its turbulent past. The Moon's gravitational pull causes tides on Earth and has inspired countless myths and legends throughout history.", funfact: "Despite being our closest neighbor in space, we only ever see one side of the Moon from Earth - it's like it's playing a game of cosmic hide-and-seek with us!")
+moon = Satellite.create(name_en: "moon", name_fr: "lune", planet_id: earth.id, image_path: "moon.png", classification:"rocky", summary: "The Moon is Earth's only natural satellite, lighting up our night sky with its gentle glow. It's covered in craters and plains, evidence of its turbulent past. The Moon's gravitational pull causes tides on Earth and has inspired countless myths and legends throughout history.", funfact: "Despite being our closest neighbor in space, we only ever see one side of the Moon from Earth - it's like it's playing a game of cosmic hide-and-seek with us!")
 Card.create(object: moon)
+
+
+# supports
+Gallerysupport.create(name: "box", image_path: "supports/astro-box.png")
+Gallerysupport.create(name: "light", image_path: "supports/astro-light.png")
+Gallerysupport.create(name: "globe", image_path: "supports/astro-worldmap.png")
