@@ -1,3 +1,16 @@
 <div class="hp-button">
   <%= render "shared/newnavbar" %>
+  <% if user_signed_in? %>
+    <%= render "shared/logo" %>
+    <div class="ai-card">
+      <%= @response %>
+    </div>
+    <button type="button" class="btn btn-primary cards-day" data-bs-toggle="modal" data-bs-target="#myModal">
+    Cards of the day
+    </button>
+  <% else %>
+    <div class="an">
+      <%= image_tag "/assets/Logo/astro-card-white.png" %>
+    </div>
+  <% end %>
 </div>

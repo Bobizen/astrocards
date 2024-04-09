@@ -10,6 +10,8 @@ class UsercardsController < ApplicationController
   end
 
   def bonuscard
-    @card = Usercard.where(user: current_user).first
+    # @card = Usercard.where(user: current_user).first
+    @usergallery = Usergallerie.where(user: current_user).first
+    @card = Usercard.find(params[:usercard_id])
   end
 end
