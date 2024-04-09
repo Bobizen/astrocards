@@ -13,22 +13,19 @@
   max-width: 400px;
   margin: auto;
   align-items: center;
-}
-
-.form-wrapper {
-  background-color: rgba(255, 255, 255, 0);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-top: 15px;
   color: white;
-}
-
-.form-container {
-  text-align: center;
 }
 
 h2 {
   margin-bottom: 20px;
+}
+
+.form-container {
+  text-align: center;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .form-inputs {
@@ -49,10 +46,10 @@ h2 {
     margin-bottom: 10px;
     border-radius: 35px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
     transition: box-shadow 0.3s;
+    border: none;
 
     &:focus {
       border-color: white;

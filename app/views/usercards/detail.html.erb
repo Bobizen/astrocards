@@ -45,7 +45,7 @@
                   </p>
                   <div class="horizontal-line"></div>
                   <div class="display-cards-buttons d-flex justify-content-between">
-                    <button class="btn flip-button">
+                    <button class="btn flip-card-button">
                       <i class="fas fa-sync-alt"></i> Flip card
                     </button>
                     <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
@@ -109,7 +109,7 @@
               <p style="text-align: left;"><%= object.summary %></p>
               <div class="horizontal-line"></div>
               <div class="display-cards-buttons d-flex justify-content-between">
-                <button class="btn flip-button">
+                <button class="btn flip-card-button">
                   <i class="fas fa-sync-alt"></i> Flip card
                 </button>
                 <button class="btn">
@@ -123,3 +123,67 @@
     </div>
   </div>
 </div>
+
+<script>
+// // Trigger flip effect when the flip-card-button is clicked
+// $('.flip-card-button').on('click', function() {
+//   // Find the parent flip-container
+//   var flipContainer = $(this).closest('.flip-container');
+//   // Toggle the .flipped class
+//   flipContainer.find('.flipper').toggleClass('flipped');
+// });
+
+// // Trigger flip effect when clicking on the flip-card-back
+// $('.flip-card-back').on('click', function() {
+//   // Find the parent flip-container
+//   var flipContainer = $(this).closest('.flip-container');
+//   // If the flipper is flipped (back side is showing), flip it back to the front
+//   if (flipContainer.find('.flipper').hasClass('flipped')) {
+//     flipContainer.find('.flipper').removeClass('flipped');
+//   }
+// });
+
+// // Prevent flip effect when hovering over the flip-container
+// $('.flip-container').on('mouseenter mouseleave', function(e) {
+//   if (!$(this).find('.flipper').hasClass('flipped')) {
+//     $(this).toggleClass('hover', e.type === 'mouseenter');
+//   }
+// });
+// Trigger flip effect when the flip-card-button is clicked
+document.querySelectorAll('.flip-card-button').forEach(function(button) {
+  button.addEventListener('click', function() {
+    // Find the parent flip-container
+    var flipContainer = this.closest('.flip-container');
+    // Toggle the .flipped class
+    flipContainer.querySelector('.flipper').classList.toggle('flipped');
+  });
+});
+
+// Trigger flip effect when clicking on the flip-card-back
+  document.querySelectorAll('.flip-card-back').forEach(function(back) {
+    back.addEventListener('click', function() {
+      // Find the parent flip-container
+      var flipContainer = this.closest('.flip-container');
+      // If the flipper is flipped (back side is showing), flip it back to the front
+      if (flipContainer.querySelector('.flipper').classList.contains('flipped')) {
+        flipContainer.querySelector('.flipper').classList.remove('flipped');
+      }
+    });
+  });
+
+  // Prevent flip effect when hovering over the flip-container
+  document.querySelectorAll('.flip-container').forEach(function(container) {
+    container.addEventListener('mouseenter', function() {
+      if (!this.querySelector('.flipper').classList.contains('flipped')) {
+        this.classList.add('hover');
+      }
+    });
+
+    container.addEventListener('mouseleave', function() {
+      if (!this.querySelector('.flipper').classList.contains('flipped')) {
+        this.classList.remove('hover');
+      }
+    });
+  });
+
+</script>

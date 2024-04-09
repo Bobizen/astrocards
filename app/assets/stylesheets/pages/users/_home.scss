@@ -1,4 +1,4 @@
-$size : 50px;
+$size : 40px;
 $items : 6;
 $transition : .5s;
 $bounce : cubic-bezier(.3,1.4,.5,.9);
@@ -6,7 +6,7 @@ $color-inner : gold;
 $color-outer : tomato;
 $background: mix($color-inner, $color-outer);
 $black : shade($color-outer, 80%);
-$start-scale : .5;
+$start-scale : .6;
 $start-rot : 190deg;
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:800,900');
@@ -103,6 +103,7 @@ nav {
 	line-height: $size*2;
 	padding: 0;
 	width: $size*2;
+  height: $size*2;
 	background: $color-inner;
 	opacity: 1;
 	transform: none;
@@ -123,6 +124,17 @@ nav {
 		transform: scale(.9);
 		transition-duration: 0s;
 	}
+}
+
+.gologin {
+  line-height: $size*2;
+	padding: 0;
+	width: $size*2;
+	background: $color-inner;
+	opacity: 1;
+	transform: none;
+	pointer-events: auto;
+	transition-delay: 0s;
 }
 
 .menu_opener {

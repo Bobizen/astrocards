@@ -30,5 +30,9 @@ class User < ApplicationRecord
       usercard.card = card
       usercard.save
     end
+    # create the gallery
+    gallery = Usergallerie.new
+    gallery.user = @user
+    gallery.save
   end
 end
