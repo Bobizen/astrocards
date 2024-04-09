@@ -36,3 +36,32 @@ a {
   top: 490px;
   left: 82px;
 }
+
+.cards-day {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+}
+
+.an{
+  animation-name: astro;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  bottom: 400px;
+  left:50px;
+}
+
+.an img {
+  width: 300px;
+}
+
+@keyframes astro{
+  50%{
+    transform: translateY(30px);
+  }
+}

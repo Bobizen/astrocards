@@ -39,6 +39,9 @@ Card.create(object: neptune)
 moon = Satellite.create(name_en: "moon", name_fr: "lune", planet_id: earth.id, image_path: "moon.png", classification:"rocky", summary: "The Moon is Earth's only natural satellite, lighting up our night sky with its gentle glow. It's covered in craters and plains, evidence of its turbulent past. The Moon's gravitational pull causes tides on Earth and has inspired countless myths and legends throughout history.", funfact: "Despite being our closest neighbor in space, we only ever see one side of the Moon from Earth - it's like it's playing a game of cosmic hide-and-seek with us!")
 Card.create(object: moon)
 
+# Bonus cards
+earth_system = Special.create(name_en: "earth-moon system", name_fr: "système terre-lune", card_ids: "4-10", image_path: "babymoon.png", summary: "The Moon, the only natural earth satellite, orbits Earth at an average distance of about 385,000 kilometers and is responsible for tides on Earth due to its gravitational pull. The Moon has a diameter about one-quarter of Earth's, making it the fifth largest moon in the solar system. The first human missions to the Moon took place under NASA's Apollo program in the 1960s and 1970", funfact: "The Moon is moving away from Earth at a rate of about 3.8 centimeters per year, which means that in about 50 billion years, it will take the Moon about 47 days to orbit Earth, compared to about 27.3 days currently.")
+Card.create(object: earth_system)
 
 # supports
 Gallerysupport.create(name: "box", image_path: "supports/astro-box.png")

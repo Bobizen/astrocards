@@ -3,7 +3,7 @@
   <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
   <%= render "shared/logo" %>
     <div class="flipper">
-      <% card = Card.find(@card.id) %>
+      <% card = Card.find(@card.card_id) %>
       <% object = card.object %>
       <!-- Card front -->
       <div class="flip-card-front">
@@ -28,7 +28,7 @@
                     <div>
                       <p style="text-align: left;">Distance from Earth:</p>
                       <p>
-                        <strong style="text-align: left;"><%= object.revolution %></strong>
+                        <strong style="text-align: left;"><%= "TDB" %></strong>
                       /mm km
                       </p>
                     </div>
@@ -36,17 +36,17 @@
                     <div style="width: 50%;">
                       <p style="text-align: left;">Revolution:</p>
                       <p>
-                        <strong style="text-align: left;"><%= object.revolution %></strong>
+                        <strong style="text-align: left;"><%= "TBD" %></strong>
                       /earth years
                       </p>
                     </div>
                   </div>
                   <div class="horizontal-line"></div>
                   <p style="text-align: left; font-size: 14px;">Type of planet:
-                    <strong style="font-size:18px;"><%= object.classification %></strong>
+                    <strong style="font-size:18px;"><%= "TBD" %></strong>
                   </p>
                   <p style="text-align: left; font-size: 14px;">Main moons:
-                    <strong style="font-size:18px;"><%= object.classification %></strong>
+                    <strong style="font-size:18px;"><%= "TBD" %></strong>
                   </p>
                   <div class="horizontal-line"></div>
                   <div class="display-cards-buttons d-flex justify-content-between">
@@ -81,7 +81,7 @@
                   <div style="width: 50%;">
                     <p>Distance from Earth:</p>
                     <p>
-                      <strong style="text-align: left;"><%= object.revolution %></strong>
+                      <strong style="text-align: left;"><%= "TBD" %></strong>
                       /mm km
                     </p>
                   </div>
@@ -96,14 +96,14 @@
                   </p>
                   <p>Type of planet:</p>
                   <p>
-                    <strong style="font-size:18px;"><%= object.classification %></strong>
+                    <strong style="font-size:18px;"><%= "TBD" %></strong>
                   </p>
                 </div>
                 <div class="vertical-line"></div>
                 <div style="width: 50%;">
                   <p>Revolution:</p>
                   <p>
-                    <strong style="text-align: left;"><%= object.revolution %></strong>
+                    <strong style="text-align: left;"><%= "TBD" %></strong>
                     /earth years
                   </p>
                 </div>

@@ -17,6 +17,10 @@
   width: 80px;
 }
 
+.special-border {
+  border: 2px solid rgb(255, 223, 0);
+}
+
 .l-card-content {
   padding-left: 0.3rem;
   flex-grow: 1;
@@ -58,6 +62,7 @@
 .g-card {
   height: 150px;
   width: 150px;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-size: cover;
@@ -75,4 +80,16 @@
 
 .r-card {
 
+}
+
+.ai-card {
+  position: absolute;
+  top: 350px;
+  left: 80px;
+  width: 250px;
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-family: $kreadon-font;
+  color: white;
 }
