@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
+
   devise_for :users
   root to: "pages#home"
   get '/privacy', to: 'pages#privacy_statement', as: 'privacy_statement'
   get '/profile', to: 'users#profile', as: 'profile'
   get '/home', to: 'users#home', as: 'afterloginhp'
+  get '/my_profile', to: 'users#my_profile', as: 'my_profile'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
