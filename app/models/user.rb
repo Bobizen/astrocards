@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :usercards
+  has_many :usergalleries
   has_one_attached :avatar
   after_commit :give_initial_cards, on: [:create]
 

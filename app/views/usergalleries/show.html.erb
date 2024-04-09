@@ -14,10 +14,14 @@
         <% @cards_in_gallery.each do |gallerycard| %>
           <% usercard = Usercard.find(gallerycard.usercard_id) %>
           <% usersupport = Usersupport.where(usergallerycard_id: gallerycard.id) %>
-          <% support = Gallerysupport.find(usersupport[0].gallerysupport_id) %>
           <% card = Card.find(usercard.card_id) %>
           <% object = card.object %>
+            <% if usersupport.empty? %>
+            <div class="g-card" id='o<%=gallerycard.id%>' data-controller="galleryitem" data-action="click->galleryitem#fire" data-galleryitem-target="selectedelement">
+            <% else %>
+            <% support = Gallerysupport.find(usersupport[0].gallerysupport_id) %>
             <div class="g-card" id='o<%=gallerycard.id%>' style='background-image: url(<%= image_path "#{support.image_path}"%>);' data-controller="galleryitem" data-action="click->galleryitem#fire" data-galleryitem-target="selectedelement">
+            <% end %>
               <%= image_tag "objects/#{object.image_path}" %>
             </div>
         <% end %>
