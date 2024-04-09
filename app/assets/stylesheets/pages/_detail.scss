@@ -104,7 +104,10 @@
   perspective: 1000px; /* Add perspective for the 3D effect */
 }
   /* flip the pane when hovered */
-  .flip-container:hover .flipper, .flip-container.hover .flipper {
+  // .flip-container:hover .flipper, .flip-container.hover .flipper {
+  //   transform: rotateY(180deg);
+  // }
+  .flip-container .flipper.flipped {
     transform: rotateY(180deg);
   }
 
@@ -136,5 +139,5 @@
 }
 
 .flip-card-front {
-  z-index: 2;
+  z-index: 1;
 }
