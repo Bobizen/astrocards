@@ -6,6 +6,8 @@ class UsergalleriesController < ApplicationController
       gallery.user = current_user
       gallery.save
       redirect_to usergallery_path(gallery.id)
+    else
+      redirect_to usergallery_path(Usergallerie.where(user: current_user).first.id)
     end
   end
 

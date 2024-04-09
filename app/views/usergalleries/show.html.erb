@@ -1,17 +1,24 @@
 <div class="gallery-bg">
-  <%= render "shared/navbar" %>
-  <div class="gallery">
+  <%= render "shared/newnavbar" %>
+  <div class=" container gallery">
+    <%= render "shared/logo" %>
     <div class="title">
-      My Gallery
+      My Personal Gallery
     </div>
-    <div class="content">
+    <div class="form-check form-switch ms-4" data-controller="sharedgallery">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Share in public</label>
+    </div>
+    <div class="content" data-controller="galleryitem" data-galleryitem-target="selectedContainer" >
       <% @cards_in_gallery.each do |gallerycard| %>
-      <% usercard = Usercard.find(gallerycard.usercard_id) %>
-      <% card = Card.find(usercard.card_id) %>
-      <% object = card.object %>
-        <div class="g-card">
-          <%= image_tag "objects/#{object.image_path}" %>
-        </div>
+        <% usercard = Usercard.find(gallerycard.usercard_id) %>
+        <% card = Card.find(usercard.card_id) %>
+        <% object = card.object %>
+          <div class="g-card" data-controller="galleryitem" data-action="click->galleryitem#selecteditem" data-galleryitem-target="selectedelement">
+            <%= image_tag "objects/#{object.image_path}" %>
+          </div>
       <% end %>
+    </div>
+    <div class="gallery-supports">
     </div>
 </div>
