@@ -57,6 +57,8 @@ gem "sassc-rails"
 gem "ruby-openai"
 gem "sidekiq", "~> 7"
 gem "sidekiq-failures"
+gem 'popper_js'
+gem 'jquery-rails'
 
 
 group :development, :test do
