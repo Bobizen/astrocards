@@ -26,36 +26,34 @@
                   <div class="horizontal-line"></div>
                   <div class="d-flex justify-content-between">
                     <div>
-                      <p style="text-align: left;">Distance from Earth:</p>
+                      <p style="text-align: center;">Family Member - Planet</p>
                       <p>
-                        <strong style="text-align: left;"><%= "TDB" %></strong>
-                      /mm km
+                        <strong style="text-align: left; font-family: AKONY;">Earth</strong>
                       </p>
                     </div>
                     <div class="vertical-line"></div>
                     <div style="width: 50%;">
-                      <p style="text-align: left;">Revolution:</p>
+                      <p style="text-align: center;">Family Member - Satellites</p>
                       <p>
-                        <strong style="text-align: left;"><%= "TBD" %></strong>
-                      /earth years
+                        <strong style="text-align: left; font-family: AKONY;">Moon</strong>
                       </p>
                     </div>
                   </div>
                   <div class="horizontal-line"></div>
-                  <p style="text-align: left; font-size: 14px;">Type of planet:
-                    <strong style="font-size:18px;"><%= "TBD" %></strong>
-                  </p>
-                  <p style="text-align: left; font-size: 14px;">Main moons:
-                    <strong style="font-size:18px;"><%= "TBD" %></strong>
+                  <p style="text-align: left; font-size: 14px; font: bold">Orbital Period:</p>
+                  <p style="text-align: left; font-size: 14px;">The Moon orbits the Earth, completing one orbit approximately every 27.3 days, known as the sidereal month. However, due to the Earth's orbit around the Sun, it takes about 29.5 days for the Moon to complete its phases, from new moon to new moon, which is known as the synodic month.</p>
+                  <%# <p style="text-align: left; font-size: 14px;">Main moons:
+                    <strong style="font-size:18px; font-family: AKONY;"><%= object.average_distance_to_earth</strong> %>
                   </p>
                   <div class="horizontal-line"></div>
                   <div class="display-cards-buttons d-flex justify-content-between">
                     <button class="btn flip-button">
                       <i class="fas fa-sync-alt"></i> Flip card
                     </button>
-                    <button class="btn">
-                      <i class="fas fa-plus"></i> Add to gallery
-                    </button>
+                    <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
+                      <%= f.input :id, as: :hidden %>
+                      <%= f.submit "+ Add to gallery", class: 'm-0 btn' %>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -79,35 +77,17 @@
                   </div>
                   <div class="vertical-line"></div>
                   <div style="width: 50%;">
-                    <p>Distance from Earth:</p>
+                    <p style="text-align: center; font-size: 14px;">Average Distance to Earth:
                     <p>
-                      <strong style="text-align: left;"><%= "TBD" %></strong>
-                      /mm km
+                    <strong style="font-size:18px; font-family: AKONY;">~0.38</strong>
+                    /mm km
                     </p>
                   </div>
                 </div>
               </div>
               <div class="horizontal-line"></div>
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p>Distance from Earth:</p>
-                  <p>
-                  <strong>628 million km</strong>
-                  </p>
-                  <p>Type of planet:</p>
-                  <p>
-                    <strong style="font-size:18px;"><%= "TBD" %></strong>
-                  </p>
-                </div>
-                <div class="vertical-line"></div>
-                <div style="width: 50%;">
-                  <p>Revolution:</p>
-                  <p>
-                    <strong style="text-align: left;"><%= "TBD" %></strong>
-                    /earth years
-                  </p>
-                </div>
-              </div>
+                <p style="text-align: left; font: bold;">Funfact</p>
+                <p style="text-align: left;"><%= object.funfact %></p>
               <div class="horizontal-line"></div>
               <p style="text-align: left;">Description:</p>
               <p style="text-align: left;"><%= object.summary %></p>
@@ -116,9 +96,10 @@
                 <button class="btn flip-button">
                   <i class="fas fa-sync-alt"></i> Flip card
                 </button>
-                <button class="btn">
-                  <i class="fas fa-plus"></i> Add to gallery
-                </button>
+                <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
+                  <%= f.input :id, as: :hidden %>
+                  <%= f.submit "+ Add to gallery", class: 'm-0 btn' %>
+                <% end %>
               </div>
             </div>
           </div>

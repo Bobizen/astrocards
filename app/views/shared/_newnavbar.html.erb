@@ -1,4 +1,4 @@
-<nav class="top-right ">
+<nav class="top-right" style="z-index:65656565;">
   <% if user_signed_in? %>
     <%= link_to destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'disc l1' do %>
       <div>Log out</div>
