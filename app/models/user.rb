@@ -4,13 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :usercards
-  has_many :usergalleries
+  has_many :usercards, dependent: :destroy
+  has_many :usergalleries, dependent: :destroy
   has_one_attached :avatar
   after_commit :give_initial_cards, on: [:create]
-
-  has_many :usercards, dependent: :destroy
-  has_one :usergallerie, dependent: :destroy
 
   # Validation for mandatory acceptance of privacy statement
   validates :privacy_statement, acceptance: true

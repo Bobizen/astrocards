@@ -15,11 +15,17 @@ class UsergalleriesController < ApplicationController
     @gallery = Usergallerie.find(params[:id])
     @cards_in_gallery = Usergallerycard.where(usergallerie: @gallery)
     @supports = Gallerysupport.all
+
+    if current_user.id == @gallery.user_id
+      @userstatus = true
+    end
   end
 
   def ranking
     @bestrank = 1
     @ranking = 2
+
+    @galleries = Usergallerie.where(shared: true).sort_by { |gallery| -gallery.usergallerycards.count }
   end
 
   def share

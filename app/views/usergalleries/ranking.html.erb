@@ -23,5 +23,44 @@
     <div class="ranking-listing">
       <p class="ranking-title">Best galleries of the week</p>
       <div class="ranking-cards">
+        <% @galleries.each_with_index do |gallery,index| %>
+          <% usergallery = User.find(gallery.user_id) %>
+          <%= link_to usergallery_path(gallery.id) do %>
+            <div class="r-card">
+              <div class="r-card-rank">
+                <%= index+1 %>
+              </div>
+              <div class="r-card-avatar">
+                <% if usergallery.avatar.attached? %>
+                  <%= image_tag url_for(usergallery.avatar) %>
+                <% else %>
+                  <%= image_tag "objects/unknow card.png", alt:'Profile Picture' %>
+                <% end %>
+              </div>
+              <div class="r-card-content">
+                <div class="r-card-content-title">
+                  <div class="title">
+                    <%= usergallery.nickname %>
+                  </div>
+                  <div class="other">
+                    "MM-DD"
+                  </div>
+                </div>
+                <div class="r-card-content-objects">
+                  <% gallery.usergallerycards.each do |gallerycard| %>
+                    <% usercard = Usercard.find(gallerycard.usercard_id) %>
+                    <% card = Card.find(usercard.card_id) %>
+                    <% object = card.object %>
+                    <%= image_tag "objects/#{object.image_path}" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
   </div>
 </div>
+<% console %>
