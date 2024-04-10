@@ -28,13 +28,25 @@ class User < ApplicationRecord
   # TODO: select among all the cards but the bonus ones
   def give_initial_cards
     @user = self
-    @cards = Card.order("RANDOM()").limit(4)
-    @cards.each do |card|
+
+    # 4 random planets
+    @planets = Card.where(object_type: "Planet").order("RANDOM()").limit(4)
+    @planets.each do |card|
       usercard = Usercard.new
       usercard.user = @user
       usercard.card = card
       usercard.save
     end
+
+    # 2 random satellites
+    @satellites = Card.where(object_type: "Satellite").order("RANDOM()").limit(2)
+    @satellites.each do |card|
+      usercard = Usercard.new
+      usercard.user = @user
+      usercard.card = card
+      usercard.save
+    end
+
     # create the gallery
     gallery = Usergallerie.new
     gallery.user = @user
