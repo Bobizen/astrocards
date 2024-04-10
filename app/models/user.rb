@@ -49,4 +49,5 @@ class User < ApplicationRecord
     gallery.user = @user
     gallery.save
   end
+
 end
