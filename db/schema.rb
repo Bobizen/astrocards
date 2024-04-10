@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_09_212524) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_10_140614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_09_212524) do
     t.float "rotation"
     t.string "distance_from_star"
     t.bigint "star_id", null: false
+    t.text "average_distance_to_earth"
+    t.text "main_moon"
     t.index ["star_id"], name: "index_planets_on_star_id"
   end
 
@@ -91,6 +93,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_09_212524) do
     t.float "rotation"
     t.string "distance_from_planet"
     t.bigint "planet_id", null: false
+    t.text "average_distance_to_earth"
+    t.text "main_moon"
     t.index ["planet_id"], name: "index_satellites_on_planet_id"
   end
 
@@ -121,6 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_09_212524) do
     t.datetime "updated_at", null: false
     t.float "revolution"
     t.float "rotation"
+    t.text "main_moon"
   end
 
   create_table "usercards", force: :cascade do |t|

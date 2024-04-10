@@ -21,28 +21,28 @@
                 <div class="display-cards-info">
                   <div class="horizontal-line"></div>
                   <div class="d-flex justify-content-between">
-                    <div>
-                      <p style="text-align: left;">Distance from Earth:</p>
+                    <div style="width: 50%;">
+                      <p style="text-align: left; font-size: 14px;">Distance from Earth</p>
                       <p>
-                        <strong style="text-align: left;"><%= object.revolution %></strong>
-                      /mm km
+                        <strong style="text-align: left; font-family: AKONY;"><%= object.average_distance_to_earth %></strong>
                       </p>
+                      <p>/mm km</p>
                     </div>
                     <div class="vertical-line"></div>
                     <div style="width: 50%;">
-                      <p style="text-align: left;">Revolution:</p>
+                      <p style="text-align: left; font-size: 14px;">Revolution</p>
                       <p>
-                        <strong style="text-align: left;"><%= object.revolution %></strong>
-                      /earth years
+                        <strong style="text-align: left; font-family: AKONY;"><%= object.revolution %></strong>
                       </p>
+                      <p>/earth years</p>
                     </div>
                   </div>
                   <div class="horizontal-line"></div>
-                  <p style="text-align: left; font-size: 14px;">Type of planet:
-                    <strong style="font-size:18px;"><%= object.classification %></strong>
+                  <p style="text-align: left; font-size: 14px;">Type:
+                    <strong style="font-size:18px; font: bold;"><%= object.classification %></strong>
                   </p>
                   <p style="text-align: left; font-size: 14px;">Main moons:
-                    <strong style="font-size:18px;"><%= object.classification %></strong>
+                    <strong style="font-size: 18px; font: bold;"><%= object.main_moon %></strong>
                   </p>
                   <div class="horizontal-line"></div>
                   <div class="display-cards-buttons d-flex justify-content-between">
@@ -76,37 +76,19 @@
                   </div>
                   <div class="vertical-line"></div>
                   <div style="width: 50%;">
-                    <p>Distance from Earth:</p>
+                    <p style="text-align: left; font: bold;">Rotation</p>
                     <p>
-                      <strong style="text-align: left;"><%= object.revolution %></strong>
-                      /mm km
+                      <strong style="text-align: left; font-family: AKONY;"><%= object.rotation %></strong>
                     </p>
+                    <p>/Earth days</p>
                   </div>
                 </div>
               </div>
               <div class="horizontal-line"></div>
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p>Distance from Earth:</p>
-                  <p>
-                  <strong>628 million km</strong>
-                  </p>
-                  <p>Type of planet:</p>
-                  <p>
-                    <strong style="font-size:18px;"><%= object.classification %></strong>
-                  </p>
-                </div>
-                <div class="vertical-line"></div>
-                <div style="width: 50%;">
-                  <p>Revolution:</p>
-                  <p>
-                    <strong style="text-align: left;"><%= object.revolution %></strong>
-                    /earth years
-                  </p>
-                </div>
-              </div>
+                <p style="text-align: left; font: bold;">Funfact</p>
+                <p style="text-align: left;"><%= object.funfact %></p>
               <div class="horizontal-line"></div>
-              <p style="text-align: left;">Description:</p>
+              <p style="text-align: left; font: bold;">Description</p>
               <p style="text-align: left;"><%= object.summary %></p>
               <div class="horizontal-line"></div>
               <div class="display-cards-buttons d-flex justify-content-between">
