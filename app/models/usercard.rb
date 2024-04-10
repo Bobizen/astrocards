@@ -15,14 +15,10 @@ class Usercard < ApplicationRecord
     @usercards.each do |usercard|
       @usercards_tab << usercard.card.id
     end
-    puts "tab of usercards"
-    puts @usercards_tab
 
     # loop on all the bonus cards
     @specials.each do |specialcard|
       special_tab = specialcard.card_ids.split("-").map(&:to_i)
-      puts "tab of specials card"
-      puts special_tab
 
       result = special_tab.all? { |id| @usercards_tab.include?(id) }
       if result
@@ -30,7 +26,6 @@ class Usercard < ApplicationRecord
         card = Card.where(object_id: specialcard.id, object_type: "Special")
         unless @usercards_tab.include?(card[0].id)
           # give the user a new bonus card
-          puts "new bonus added to usercard"
           new_usercard = Usercard.new(user_id: user_id, card_id: card[0].id)
           new_usercard.save
         end
