@@ -42,7 +42,6 @@
   var modalBody = document.getElementById('modal-body');
   var modal = document.getElementById('myModal');
     button.addEventListener('click', (e) => {
-    e.preventDefault();
     fetch('newcards').then(response => response.json()).then(data => {
     modalBody.innerHTML = `
      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -156,6 +155,5 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
     `
-    modal.modal('show')
     })});
 </script>
