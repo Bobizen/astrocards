@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'usercards/bonus/:usercard_id', to: 'usercards#bonuscard', as: 'usercards_bonus'
   # get 'usercards/detail', to: 'usercards#detail', as: 'usercards_detail'
   get 'usercards/detail/:usercard_id', to: 'usercards#detail', as: 'usercards_detail'
+  get'newcards', to:'users#new_card', as: 'new_card'
 
   resources :usercards, only: [:index]
   resources :usergalleries, only: [:index, :create, :show] do

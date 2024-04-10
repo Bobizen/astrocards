@@ -10,8 +10,8 @@
     <div class="ai-card">
       <%= @response %>
     </div>
-    <button type="button" class="btn btn-primary cards-day" data-bs-toggle="modal" data-bs-target="#myModal">
-    Cards of the day
+    <button type="button" class="btn btn-primary cards-day" data-bs-toggle="modal" data-bs-target="#myModal" id="cardButton">
+      Cards of the day
     </button>
   <% else %>
     <div class="an">
@@ -19,3 +19,143 @@
     </div>
   <% end %>
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cards of the day</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modal-body" >
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>
+</div>
+
+<script>
+  var button = document.getElementById('cardButton');
+  var modalBody = document.getElementById('modal-body');
+  var modal = document.getElementById('myModal');
+    button.addEventListener('click', (e) => {
+    e.preventDefault();
+    fetch('newcards').then(response => response.json()).then(data => {
+    modalBody.innerHTML = `
+     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="display-cards-bg p-2 mb-0" style='max-height:500px;'>
+                    <div class="flip-container">
+                    <div class="flippers container">
+                        <div class="display-cards-card container mt-4 " >
+                          <div class="row">
+                            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                              <div class="d-flex flex-column align-items-center justify-content-center">
+                                <div class="display-cards-pic">
+                                  <img src="/assets/objects/${data.planet.image_path}">
+                                </div>
+                                <p style="font-size: 18px; font-family: AKONY;">${data.planet.name_en}</p>
+                                <div class="display-cards-info">
+                                  <div class="horizontal-line"></div>
+                                  <div class="d-flex justify-content-between">
+                                    <div>
+                                      <p style="text-align: left;">Distance from Earth:</p>
+                                      <p>
+                                        <strong style="text-align: left;"> ${data.planet.revolution}</strong>
+                                      /mm km
+                                      </p>
+                                    </div>
+                                    <div class="vertical-line"></div>
+                                    <div>
+                                      <p style="text-align: left;">Revolution:</p>
+                                      <p>
+                                        <strong style="text-align: left;">${data.planet.revolution}</strong>
+                                      /earth years
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="horizontal-line"></div>
+                                  <p style="text-align: left; font-size: 14px;">Type of planet:
+                                    <strong style="font-size:18px;">${data.planet.classification}</strong>
+                                  </p>
+                                  <p style="text-align: left; font-size: 14px;">Main moons:
+                                    <strong style="font-size:18px;">${data.planet.classification}</strong>
+                                  </p>
+                                  <div class="horizontal-line"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                <div class="display-cards-bg p-2 mb-0" style='max-height:500px;'>
+                  <div class="flip-container">
+                      <div class="flippers container">
+                        <!-- Card front -->
+                          <div class="display-cards-card container mt-4 " >
+                            <div class="row">
+                              <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                <div class="d-flex flex-column align-items-center justify-content-center">
+                                  <div class="display-cards-pic">
+                                    <img src="/assets/objects/${data.satellite.image_path}">
+                                  </div>
+                                  <p style="font-size: 18px; font-family: AKONY;">${data.satellite.name_en}</p>
+                                  <div class="display-cards-info">
+                                    <div class="horizontal-line"></div>
+                                    <div class="d-flex justify-content-between">
+                                      <div>
+                                        <p style="text-align: left;">Distance from Earth:</p>
+                                        <p>
+                                          <strong style="text-align: left;"> ${data.satellite.revolution}</strong>
+                                        /mm km
+                                        </p>
+                                      </div>
+                                      <div class="vertical-line"></div>
+                                      <div>
+                                        <p style="text-align: left;">Revolution:</p>
+                                        <p>
+                                          <strong style="text-align: left;">${data.satellite.revolution}</strong>
+                                        /earth years
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div class="horizontal-line"></div>
+                                    <p style="text-align: left; font-size: 14px;">Type of planet:
+                                      <strong style="font-size:18px;">${data.satellite.classification}</strong>
+                                    </p>
+                                    <p style="text-align: left; font-size: 14px;">Main moons:
+                                      <strong style="font-size:18px;">${data.satellite.classification}</strong>
+                                    </p>
+                                    <div class="horizontal-line"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    `
+    modal.modal('show')
+    })});
+</script>
