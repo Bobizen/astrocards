@@ -2,6 +2,11 @@
   <%= render "shared/newnavbar" %>
   <% if user_signed_in? %>
     <%= render "shared/logo" %>
+    <div class="newbonus-card">
+      <%= link_to "#" do %>
+        <%= image_tag "/assets/objects/northstar.png" %>
+      <% end %>
+    </div>
     <div class="ai-card">
       <%= @response %>
     </div>
