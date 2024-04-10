@@ -4,7 +4,7 @@
     <%= render "shared/logo" %>
     <div class="collection-summary">
       <div class="collection-summary-block">
-        <div class="title">
+        <div class="summary-title">
           Cards
         </div>
         <div class="content">
@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="collection-summary-block">
-        <div class="title border-left">
+        <div class="summary-title border-left">
             Missing
         </div>
         <div class="content border-left">
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="collection-listing">
-      <p class="collection-title">Title</p>
+      <p class="collection-title">My Collection</p>
       <div class="listing-cards">
         <% @usercards.each do |usercard| %>
           <% card = Card.find(usercard.card_id) %>
@@ -32,6 +32,7 @@
             <%= link_to usercards_bonus_path(usercard.id) do %>
               <div class="l-card special-border">
                 <%= image_tag "objects/#{object.image_path}" %>
+
                 <div class="l-card-content">
                 <div class="title">
                   <div><strong><%= object.name_en %></strong></div>
@@ -54,7 +55,7 @@
                   <div><%= card.object_type %></div>
                 </div>
                 <div class="infos">
-                  <%= object.summary %>
+                  <%= object.funfact %>
                 </div>
               </div>
               </div>

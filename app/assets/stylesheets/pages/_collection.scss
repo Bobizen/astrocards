@@ -11,12 +11,19 @@
   flex-direction: column;
   // max-height: calc(100vh - 4rem);
   height: 100vh;
+  max-width: 400px;
 }
 
 .collection-summary {
   // background-color: black;
   display: flex;
   border-bottom: 1px solid white;
+
+}
+
+.summary-title {
+  color: white;
+  padding-left: 13px;
 }
 
 .collection-summary-block {
@@ -29,22 +36,28 @@
   color: white;
   align-content: flex-start;
   padding-left: 1rem;
-  font-size: 16px;
+  font-size: 18px;
+  // padding-bottom: 5px;
 }
 
 .collection-summary-block .content {
-  flex-grow: 0.9;
+  // flex-grow: 0.9;
   text-align: center;
   color: white;
   font-size: 24px;
-  margin-bottom: 16px;
+  padding-top: 7px;
+  margin-bottom: 7px;
   // background-color: grey;
+
 }
 
 .border-left {
   border-left: 1px solid white;
 }
 
+.collection-title {
+  font-size: 18px;
+}
 
 .collection-listing {
   margin-top: 1rem;
@@ -53,6 +66,7 @@
   color: white;
   overflow: scroll;
   // max-height: calc(100vh - 200px);
+
 }
 
 .collection-missing {
@@ -62,4 +76,30 @@
 
 .collection-title {
   padding-left: 1rem;
+}
+
+// ↓↓↓ updated by roxie ↓↓↓
+.title {
+  text-transform: capitalize;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.infos {
+  padding-top: 5px;
+}
+
+.l-card {
+  margin-bottom: 7px;
+  height: 115px;
+}
+
+.l-card img {
+  margin: auto;
+
+}
+
+.l-card-content {
+  padding-top: 3px;
 }
