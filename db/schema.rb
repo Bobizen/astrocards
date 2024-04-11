@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_10_140614) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_11_141123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -126,6 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_10_140614) do
     t.float "revolution"
     t.float "rotation"
     t.text "main_moon"
+    t.float "average_distance_to_earth"
   end
 
   create_table "usercards", force: :cascade do |t|
