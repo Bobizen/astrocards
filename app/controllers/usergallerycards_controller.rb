@@ -17,6 +17,7 @@ class UsergallerycardsController < ApplicationController
   def destroy
     @usergallerycard = Usergallerycard.find(params[:id])
     @usergallerycard.destroy
+    redirect_to usergallery_path(params[:usergallerie_id])
   end
 
   private
