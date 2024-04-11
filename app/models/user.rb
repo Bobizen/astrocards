@@ -27,7 +27,7 @@ class User < ApplicationRecord
     @user = self
 
     # 4 random planets
-    @planets = Card.where(object_type: "Planet").order("RANDOM()").limit(4)
+    @planets = Card.where(object_type: "Planet").order("RANDOM()").limit(3)
     @planets.each do |card|
       usercard = Usercard.new
       usercard.user = @user
