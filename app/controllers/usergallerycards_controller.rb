@@ -14,6 +14,11 @@ class UsergallerycardsController < ApplicationController
     end
   end
 
+  def destroy
+    @usergallerycard = Usergallerycard.find(params[:id])
+    @usergallerycard.destroy
+  end
+
   private
   def gallerycard_params
     params.require(:usergallerycard).permit(:usergallery_id, :id)
