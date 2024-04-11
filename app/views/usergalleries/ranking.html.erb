@@ -4,7 +4,7 @@
     <%= render "shared/logo" %>
     <div class="collection-summary">
       <div class="collection-summary-block">
-        <div class="title">
+        <div class="summary-title">
           My ranking this week
         </div>
         <div class="content">
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="collection-summary-block">
-        <div class="title border-left">
+        <div class="summary-title border-left">
             Best ranked
         </div>
         <div class="content border-left">
@@ -42,8 +42,8 @@
                   <div class="title">
                     <%= usergallery.nickname %>
                   </div>
-                  <div class="other">
-                    <strong><%= gallery.usergallerycards.count %></strong><i class="fa-solid fa-earth-americas ps-1 pe-2"></i>
+                  <div>
+                    <span class="other"><%= gallery.usergallerycards.count %><i class="fa-solid fa-earth-americas ps-1 pe-2"></i></span>
                   </div>
                 </div>
                 <div class="r-card-content-objects">
