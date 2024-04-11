@@ -1,6 +1,7 @@
 class Usercard < ApplicationRecord
   belongs_to :card
   belongs_to :user
+  # has_many :cards
 
   after_commit :detect_bonus_cards, on: [:create]
 

@@ -51,11 +51,20 @@
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.3);
   padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  width: 70px;
 }
 
 .m-card img {
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
+}
+
+.m-card .subtitle-missing {
+  font-size: 14px;
+  padding: 0.1rem;
+  text-align: center;
 }
 
 // gallery card
