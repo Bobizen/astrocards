@@ -39,7 +39,7 @@
                   <div><%= card.object_type %></div>
                 </div>
                 <div class="infos">
-                  <span class="funfact"><%= object.funfact %></span>
+                  <span class="funfact" data-controller="truncate" data-truncate-target="fun"><%= object.funfact %></span>
 
                 </div>
 
@@ -57,7 +57,7 @@
                   <div><%= card.object_type %></div>
                 </div>
                 <div class="infos">
-                  <span class="funfact"><%= object.funfact %></span>
+                  <span class="funfact" data-controller="truncate" data-truncate-target="fun"><%= object.funfact %></span>
                 </div>
 
               </div>
@@ -89,30 +89,3 @@
     </div>
   </div>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  var funfactElements = document.querySelectorAll('.funfact');
-  funfactElements.forEach(function(element) {
-    truncateFunfact(element);
-  });
-});
-
-function truncateFunfact(element) {
-  var text = element.textContent;
-  var words = text.split(' ');
-  if (words.length > 25) {
-    var truncatedText = words.slice(0, 25).join(' ');
-    element.textContent = truncatedText + '...';
-    var seeMoreLink = document.createElement('a');
-    seeMoreLink.textContent = '[See more]';
-    seeMoreLink.href = '#'; // You can set the link destination if needed
-    // seeMoreLink.onclick = function() {
-    //   element.textContent = text;
-    //   this.remove(); // Remove the "See more" link after expanding
-    //   return false; // Prevent default link behavior
-    // };
-    element.insertAdjacentElement('afterend', seeMoreLink);
-  }
-}
-</script>
