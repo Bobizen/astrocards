@@ -17,12 +17,12 @@
             Missing
         </div>
         <div class="content border-left">
-          <%= (Card.count - nbusercard ) %>
+          <%= @missingcards.count %>
         </div>
       </div>
     </div>
     <div class="collection-listing">
-      <p class="collection-title">My Collection</p>
+      <p class="section-title">My Collection</p>
       <div class="listing-cards">
         <% @usercards.each do |usercard| %>
           <% card = Card.find(usercard.card_id) %>
@@ -65,23 +65,24 @@
         <% end %>
       </div>
       </div>
-      <div class="collection-missing">
-        <p>Missing cards</p>
-        <div class="missing-cards">
-          <div class="m-card">
-            <%= image_tag asset_path('objects/unknow card.png') %>
-          </div>
-          <div class="m-card">
-            <%= image_tag asset_path('objects/unknow card.png') %>
-          </div>
-          <div class="m-card">
-            <%= image_tag asset_path('objects/unknow card.png') %>
-          </div>
-          <div class="m-card">
-            <%= image_tag asset_path('objects/unknow card.png') %>
+      <% if @missingcards.count != 0 %>
+        <div class="collection-missing">
+          <p class="section-title">Missing cards</p>
+          <div class="missing-cards">
+            <% @missingcards.each do |missing| %>
+              <% object = missing.object %>
+              <div class="m-card">
+                <div>
+                  <%= image_tag asset_path('objects/unknow card.png') %>
+                </div>
+                <div class="subtitle-missing">
+                  <%= object.name_en %>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

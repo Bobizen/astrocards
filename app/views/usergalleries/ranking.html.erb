@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="ranking-listing">
-      <p class="ranking-title">Best galleries of the week</p>
+      <p class="ranking-title section-title">Best galleries of the week</p>
       <div class="ranking-cards">
         <% @galleries.each_with_index do |gallery,index| %>
           <% usergallery = User.find(gallery.user_id) %>
@@ -43,7 +43,7 @@
                     <%= usergallery.nickname %>
                   </div>
                   <div class="other">
-                    "MM-DD"
+                    <strong><%= gallery.usergallerycards.count %></strong><i class="fa-solid fa-earth-americas ps-1 pe-2"></i>
                   </div>
                 </div>
                 <div class="r-card-content-objects">
@@ -63,4 +63,3 @@
     </div>
   </div>
 </div>
-<% console %>

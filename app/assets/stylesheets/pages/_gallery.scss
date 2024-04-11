@@ -33,9 +33,10 @@
 }
 
 .gallery-supports {
-  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
   border-radius: 35px;
-  width: 170px;
+  // width: 170px;
 }
 
 .support-list {
@@ -57,6 +58,10 @@
   flex-grow: 1;
 }
 
+.support-list-delete {
+  height: 40px;
+}
+
 .custom-dropdown {
   background-color: transparent;
   border: 1px solid #ccc;
@@ -67,6 +72,10 @@
   margin-bottom: 10px;
   border-radius: 35px;
   box-sizing: border-box;
+}
+
+.custom-delete {
+  border: 1px solid red;
 }
 
 .custom-dropdown .dropdown-toggle {
