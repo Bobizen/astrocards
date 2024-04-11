@@ -39,20 +39,20 @@
     </div>
     <% if @userstatus %>
       <div class="gallery-supports">
-        <div class="btn-group dropup">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Supports</button>
-          <ul class="dropdown-menu">
-            <% @supports.each_with_index do |support,i| %>
-              <li class="support-list" data-controller="gallery" id='s<%=support.id%>' data-action="click->gallery#changebg" data-imagepath=<%= image_path "#{support.image_path}"%> data-gallery-target="selectedSupport">
-                <div>
-                  <%= image_tag "#{support.image_path}" %>
-                </div>
-                <div>
-                  <%= support.name %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+        <div class="btn-group dropup custom-dropdown">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Supports</button>
+            <ul class="dropdown-menu">
+                <% @supports.each_with_index do |support, i| %>
+                <li class="support-list" data-controller="gallery" id='s<%= support.id %>' data-action="click->gallery#changebg" data-imagepath=<%= image_path "#{support.image_path}"%> data-gallery-target="selectedSupport">
+                    <div>
+                        <%= image_tag "#{support.image_path}" %>
+                    </div>
+                    <div>
+                        <%= support.name %>
+                    </div>
+                </li>
+                <% end %>
+            </ul>
         </div>
       </div>
     <% end %>
