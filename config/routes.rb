@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :usercards, only: [:index]
   resources :usergalleries, only: [:index, :create, :show] do
-    resources :usergallerycards, only: [:new, :create]
+    resources :usergallerycards, only: [:new, :create, :destroy]
   end
 
   resources :usersupports, only: [:create]

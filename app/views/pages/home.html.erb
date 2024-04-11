@@ -7,7 +7,7 @@
         <%= image_tag "/assets/objects/northstar.png" %>
       <% end %>
     </div>
-    <div class="ai-card">
+    <div id="aicard" class="ai-card">
       <%= @response %>
     </div>
     <button type="button" class="btn btn-primary cards-day" data-bs-toggle="modal" data-bs-target="#myModal" id="cardButton">
@@ -21,10 +21,10 @@
 </div>
 
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cards of the day</h5>
+        <%# <h5 class="modal-title" id="exampleModalLabel">Cards of the day</h5> %>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="modal-body" >
@@ -38,16 +38,18 @@
 </div>
 
 <script>
+  var aicard = document.getElementById('aicard');
   var button = document.getElementById('cardButton');
   var modalBody = document.getElementById('modal-body');
   var modal = document.getElementById('myModal');
     button.addEventListener('click', (e) => {
     fetch('newcards').then(response => response.json()).then(data => {
+    aicard.classList.add("d-none");
     modalBody.innerHTML = `
      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <div class="display-cards-bg p-2 mb-0" style='max-height:500px;'>
+                  <div class="p-2 mb-0" style='max-height:500px;'>
                     <div class="flip-container">
                     <div class="flippers container">
                         <div class="display-cards-card container mt-4 " >
@@ -96,7 +98,7 @@
                   </div>
                 </div>
                 <div class="carousel-item">
-                <div class="display-cards-bg p-2 mb-0" style='max-height:500px;'>
+                <div class="p-2 mb-0" style='max-height:500px;'>
                   <div class="flip-container">
                       <div class="flippers container">
                         <!-- Card front -->

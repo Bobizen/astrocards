@@ -26,6 +26,7 @@ export default class extends Controller {
       // Convert the string into integer
       const usercard_id = parseInt(restOfStringUsercard, 10);
 
+      console.log(support_id)
       this.#add_support_to_object(support_id,usercard_id)
     })
     // this.selectedItemTarget.style.backgroundImage = `url(${selectedLi[0].dataset.imagepath}`
