@@ -7,7 +7,7 @@
 
       <div class="avatar-container">
         <% if resource.avatar.attached? %>
-          <%= image_tag url_for(resource.avatar), class: "avatar-preview" %>
+          <%= image_tag url_for(resource.avatar), class: "avatar-preview", id: "avatar-preview" %>
         <% else %>
           <div class="avatar-preview" id="avatar-preview">Upload Your Avatar</div>
         <% end %>
@@ -24,7 +24,6 @@
         <%= f.input :nickname, required: true, label: "Nickname" %>
 
         <%= f.input :birthdate, as: :string, label:"Birthday", class: "form-control", input_html: { class: 'flatpickr', data: { enableTime: false }, placeholder: 'Birthday' } %>
-
 
         <%= f.input :password,
                     hint: "* Plesae leave it blank if you don't want to change it",
@@ -64,5 +63,17 @@
       dateFormat: 'Y-m-d',
       maxDate: new Date().toISOString().split("T")[0],
     });
+  });
+
+  document.getElementById('avatar').addEventListener('change', function(event) {
+    var preview = document.getElementById('avatar-preview');
+    var input = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var imageUrl = event.target.result;
+      preview.src = imageUrl;
+      preview.textContent = ''; // Clear the text
+    };
+    reader.readAsDataURL(input);
   });
 </script>

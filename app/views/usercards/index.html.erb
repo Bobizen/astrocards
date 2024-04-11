@@ -5,7 +5,7 @@
     <div class="collection-summary">
       <div class="collection-summary-block">
         <div class="summary-title">
-          Cards
+          Total Cards
         </div>
         <div class="content">
           <% nbusercard = Usercard.where(user: current_user).count %>
@@ -14,7 +14,7 @@
       </div>
       <div class="collection-summary-block">
         <div class="summary-title border-left">
-            Missing
+            Missed Cards
         </div>
         <div class="content border-left">
           <%= @missingcards.count %>
@@ -39,8 +39,10 @@
                   <div><%= card.object_type %></div>
                 </div>
                 <div class="infos">
-                  <%= object.summary %>
+                  <span class="funfact"><%= object.funfact %></span>
+
                 </div>
+
               </div>
               </div>
             <% end %>
@@ -55,8 +57,9 @@
                   <div><%= card.object_type %></div>
                 </div>
                 <div class="infos">
-                  <%= object.funfact %>
+                  <span class="funfact"><%= object.funfact %></span>
                 </div>
+
               </div>
               </div>
             <% end %>
@@ -67,7 +70,7 @@
       </div>
       <% if @missingcards.count != 0 %>
         <div class="collection-missing">
-          <p class="section-title">Missing cards</p>
+          <p class="section-title">Unknown cards</p>
           <div class="missing-cards">
             <% @missingcards.each do |missing| %>
               <% object = missing.object %>
@@ -86,3 +89,30 @@
     </div>
   </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var funfactElements = document.querySelectorAll('.funfact');
+  funfactElements.forEach(function(element) {
+    truncateFunfact(element);
+  });
+});
+
+function truncateFunfact(element) {
+  var text = element.textContent;
+  var words = text.split(' ');
+  if (words.length > 25) {
+    var truncatedText = words.slice(0, 25).join(' ');
+    element.textContent = truncatedText + '...';
+    var seeMoreLink = document.createElement('a');
+    seeMoreLink.textContent = '[See more]';
+    seeMoreLink.href = '#'; // You can set the link destination if needed
+    // seeMoreLink.onclick = function() {
+    //   element.textContent = text;
+    //   this.remove(); // Remove the "See more" link after expanding
+    //   return false; // Prevent default link behavior
+    // };
+    element.insertAdjacentElement('afterend', seeMoreLink);
+  }
+}
+</script>
