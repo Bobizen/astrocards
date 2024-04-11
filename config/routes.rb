@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   get 'usergalleries/ranking', to: 'usergalleries#ranking', as: 'ranking'
   post 'usergalleries/share', to: 'usergalleries#share'
+  post 'usergallerycards/delete', to: 'usergallerycards#destroy', as: 'delete'
   get 'usercards/bonus/:usercard_id', to: 'usercards#bonuscard', as: 'usercards_bonus'
   # get 'usercards/detail', to: 'usercards#detail', as: 'usercards_detail'
   get 'usercards/detail/:usercard_id', to: 'usercards#detail', as: 'usercards_detail'

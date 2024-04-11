@@ -11,6 +11,14 @@ export default class extends Controller {
     // display the border
     if (this.userstatusValue === true) {
       this.selectedelementTarget.classList.toggle("active-border")
+      var button = document.getElementById('btn-delete');
+      button.classList.remove('d-none')
+
+      // check if there is still a 'active-border'
+      const selectedItems = document.querySelectorAll('.active-border')
+      if (selectedItems.length === 0) {
+        button.classList.add('d-none')
+      }
     }
   }
 }

@@ -33,15 +33,17 @@
 }
 
 .gallery-supports {
-  margin-bottom: 1rem;
-  color: white;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 35px;
+  // width: 170px;
 }
 
 .support-list {
   display: flex;
   align-items: center;
-  background-color: black;
   border: 1px solid white;
+  background-color: black;
   color: white
 }
 
@@ -54,4 +56,42 @@
 .support-list .title {
   padding-left: 1rem;
   flex-grow: 1;
+}
+
+.support-list-delete {
+  height: 40px;
+}
+
+.custom-dropdown {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: white;
+  width: 170px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 35px;
+  box-sizing: border-box;
+}
+
+.custom-delete {
+  border: 1px solid red;
+}
+
+.custom-dropdown .dropdown-toggle {
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 35px;
+  width: 170px;
+}
+
+.custom-dropdown .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 35px;
+  width: 170px;
 }

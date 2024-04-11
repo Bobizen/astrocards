@@ -18,12 +18,8 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @usercards = Usercard.where(user: @user)
     usercard_ids = @usercards.pluck(:card_id)
-    puts "liste des ids des cards détenues"
-    puts usercard_ids
 
     @planets = Card.where.not(object_type: "Special").where.not(id: usercard_ids).order("RANDOM()").limit(2)
-    puts "liste au choix"
-    puts @planets
     @planets.each do |card|
       usercard = Usercard.new
       usercard.user = @user

@@ -2,21 +2,21 @@
   <%= render "shared/newnavbar" %>
   <div class=" container gallery">
     <%= render "shared/logo" %>
-    <div class="title">
+    <div>
       <% if @userstatus %>
-        My Personal Gallery
+        <p class="section-title">My Personal Gallery</p>
       <% else %>
-        <%= "#{@gallery.user.nickname}'s gallery" %>
+        <p class="section-title"><%= "#{@gallery.user.nickname}'s gallery" %></p>
       <% end %>
     </div>
     <% if @userstatus %>
-      <div class="form-check form-switch ms-4" data-controller="sharedgallery" data-sharedgallery-gid-value=<%=@gallery.id%>>
+      <div class="form-check fs-5 form-switch ms-4" data-controller="sharedgallery" data-sharedgallery-gid-value=<%=@gallery.id%>>
         <% if @gallery.shared %>
           <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-sharedgallery-target="gallerycheckbox" data-action="change->sharedgallery#updatesharing" checked>
         <% else %>
           <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-sharedgallery-target="gallerycheckbox" data-action="change->sharedgallery#updatesharing">
         <% end %>
-        <label class="form-check-label" for="flexSwitchCheckDefault">Share in public</label>
+        <label class="form-check-label section-option" for="flexSwitchCheckDefault">Share in public</label>
       </div>
     <% end %>
     <div class="gallery-cards">
@@ -39,20 +39,28 @@
     </div>
     <% if @userstatus %>
       <div class="gallery-supports">
-        <div class="btn-group dropup">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Supports</button>
-          <ul class="dropdown-menu">
-            <% @supports.each_with_index do |support,i| %>
-              <li class="support-list" data-controller="gallery" id='s<%=support.id%>' data-action="click->gallery#changebg" data-imagepath=<%= image_path "#{support.image_path}"%> data-gallery-target="selectedSupport">
-                <div>
-                  <%= image_tag "#{support.image_path}" %>
-                </div>
-                <div>
-                  <%= support.name %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+        <div class="btn-group dropup custom-dropdown">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Supports</button>
+            <ul class="dropdown-menu">
+                <% @supports.each_with_index do |support, i| %>
+                <li class="support-list" data-controller="gallery" id='s<%= support.id %>' data-action="click->gallery#changebg" data-imagepath=<%= image_path "#{support.image_path}"%> data-gallery-target="selectedSupport">
+                    <div>
+                        <%= image_tag "#{support.image_path}" %>
+                    </div>
+                    <div>
+                        <%= support.name %>
+                    </div>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+        <div>
+          <div id="btn-delete" class="btn-group dropup custom-dropdown custom-delete d-none">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Delete</button>
+            <ul class="dropdown-menu">
+                <li class="support-list support-list-delete title" data-controller="gallerydelete" data-action="click->gallerydelete#deleteobj" data-gallerydelete-target="selectedopt" data-gallerydelete-opt-value="object">Object</li>
+                <li class="support-list support-list-delete title" data-controller="gallerydelete" data-action="click->gallerydelete#deleteobj" data-gallerydelete-target="selectedopt" data-gallerydelete-opt-value="support">Support</li>
+            </ul>
         </div>
       </div>
     <% end %>

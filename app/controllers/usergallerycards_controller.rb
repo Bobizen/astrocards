@@ -14,6 +14,22 @@ class UsergallerycardsController < ApplicationController
     end
   end
 
+  def destroy
+    # parameters extraction
+    # if type='object' or 'support'
+    @usergallerycard = Usergallerycard.find(params[:usergallerycard_id])
+    puts "usergallerycard id: "
+    puts @usergallerycard.id
+
+    if (params[:option_obj] == 'support')
+      @usersupport = Usersupport.find_by(usergallerycard_id: @usergallerycard.id)
+      @usersupport.destroy
+    else
+      @usergallerycard.destroy
+    end
+    # redirect_to usergallery_path(params[:usergallerie_id])
+  end
+
   private
   def gallerycard_params
     params.require(:usergallerycard).permit(:usergallery_id, :id)
