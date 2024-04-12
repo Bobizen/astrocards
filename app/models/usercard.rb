@@ -27,7 +27,7 @@ class Usercard < ApplicationRecord
         card = Card.where(object_id: specialcard.id, object_type: "Special")
         unless @usercards_tab.include?(card[0].id)
           # give the user a new bonus card
-          new_usercard = Usercard.new(user_id: user_id, card_id: card[0].id)
+          new_usercard = Usercard.new(user_id: user_id, card_id: card[0].id, seen: false)
           new_usercard.save
         end
       end

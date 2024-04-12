@@ -1,15 +1,40 @@
+/* Set background image properties */
+.display-cards-bg {
+  background-image: asset-url("background/background2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
 /* Center align everything */
+/* Card container styling */
 .display-cards-card {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center; /* Center text */
-  overflow: scroll;
+  // overflow: scroll;
+  max-height: 100vh;
+
+  background-color: rgba(250, 250, 250, 0.3);
+  box-sizing: border-box;
+  width: 90%; /* Fixed width or percentage */
+  margin: auto;
+  position: relative;
+  color: #fafafa;
+  font-family: $kreadon-font;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  border-radius: 20px; /* Border radius */
 }
 
 /* Flip card and +Add to gallery on left and right */
 .display-cards-buttons {
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .display-cards-buttons button {
@@ -23,28 +48,6 @@
 /* Add space between icon and button text */
 .display-cards-buttons button .button-text::before {
   content: "\00a0"; /* Insert space */
-}
-
-/* Set background image properties */
-.display-cards-bg {
-  height: 135vh;
-  background-image: asset-url("background/background2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Card container styling */
-.display-cards-card {
-  background-color: rgba(250, 250, 250, 0.3);
-  box-sizing: border-box;
-  width: 80%; /* Fixed width or percentage */
-  margin: auto;
-  position: relative;
-  color: #fafafa;
-  font-family: $kreadon-font;
-  margin-top: 50px;
-  border-radius: 20px; /* Border radius */
 }
 
 /* Title styling */
@@ -108,9 +111,9 @@
   // .flip-container:hover .flipper, .flip-container.hover .flipper {
   //   transform: rotateY(180deg);
   // }
-  .flip-container .flipper.flipped {
-    transform: rotateY(180deg);
-  }
+.flip-container .flipper.flipped {
+  transform: rotateY(180deg);
+}
 
 /* flip speed goes here */
 .flipper {
@@ -141,4 +144,9 @@
 
 .flip-card-front {
   z-index: 1;
+}
+
+.object-content {
+  overflow: scroll;
+  max-height: 250px;
 }

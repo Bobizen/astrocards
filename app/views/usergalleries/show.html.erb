@@ -10,13 +10,15 @@
       <% end %>
     </div>
     <% if @userstatus %>
-      <div class="form-check fs-5 form-switch ms-4" data-controller="sharedgallery" data-sharedgallery-gid-value=<%=@gallery.id%>>
-        <% if @gallery.shared %>
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-sharedgallery-target="gallerycheckbox" data-action="change->sharedgallery#updatesharing" checked>
-        <% else %>
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-sharedgallery-target="gallerycheckbox" data-action="change->sharedgallery#updatesharing">
-        <% end %>
-        <label class="form-check-label section-option" for="flexSwitchCheckDefault">Share in public</label>
+      <div class="ps-5">
+        <div class="form-check fs-5 form-switch" data-controller="sharedgallery" data-sharedgallery-gid-value=<%=@gallery.id%>>
+          <% if @gallery.shared %>
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-sharedgallery-target="gallerycheckbox" data-action="change->sharedgallery#updatesharing" checked>
+          <% else %>
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" data-sharedgallery-target="gallerycheckbox" data-action="change->sharedgallery#updatesharing">
+          <% end %>
+          <label class="form-check-label section-option" for="flexSwitchCheckDefault">Share in public</label>
+        </div>
       </div>
     <% end %>
     <div class="gallery-cards">
