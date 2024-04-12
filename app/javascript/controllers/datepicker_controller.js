@@ -1,14 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr";
 
-// Connects to data-controller="datepicker"
 export default class extends Controller {
+  static values = {
+    frompage: String
+  }
 
   connect() {
-    flatpickr(this.element, {
-      dateFormat: 'Y-m-d',
-      maxDate: new Date().toISOString().split("T")[0],
-      defaultDate: 'today'
-    });
-  }
+    const defaultDate = this.frompageValue // Get default date from data attribute
+      flatpickr(this.element, {
+        dateFormat: 'Y-m-d',
+        maxDate: 'today',
+        defaultDate: defaultDate
+      });
+    }
 }

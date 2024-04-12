@@ -23,7 +23,9 @@
 
         <%= f.input :nickname, required: true, label: "Nickname" %>
 
-        <%= f.input :birthdate, as: :string, label:"Birthday", class: "form-control", input_html: { class: 'flatpickr', data: { enableTime: false }, placeholder: 'Birthday' } %>
+        <%# <%= f.input :birthdate, as: :string, label:"Birthday", class: "form-control", input_html: { class: 'flatpickr', data: { enableTime: false }, placeholder: 'Birthday' } %>
+
+        <%= f.input :birthdate, as: :string, label:"Birthday", class: "form-control", input_html: { data: { controller: "datepicker", datepicker_frompage_value: @user.birthdate.strftime('%Y-%m-%d') }} %>
 
         <%= f.input :password,
                     hint: "* Plesae leave it blank if you don't want to change it",
