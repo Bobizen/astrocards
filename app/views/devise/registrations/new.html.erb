@@ -36,7 +36,9 @@
                         input_html: { autocomplete: "new-password" } %>
             <div class="form-birthday">
               <%# <label class="control-label" style="display:none;">Birthday</label> %>
-              <%= f.input :birthdate, as: :string, label:"Birthday", class: "form-control", input_html: { class: 'flatpickr', data: { enableTime: false }, placeholder: 'Birthday' } %>
+              <%= f.input :birthdate, as: :string, label:"Birthday", class: "form-control", input_html: { data: { controller: "datepicker", datepicker_frompage_value: '01-01-2017' } } %>
+
+
             </div>
           </div>
       </div>
@@ -63,16 +65,14 @@
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    flatpickr('.flatpickr', {
-      dateFormat: 'Y-m-d',
-      maxDate: new Date().toISOString().split("T")[0],
-      defaultDate: new Date().toISOString().split("T")[0]
-    });
-  });
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   flatpickr('.flatpickr', {
+  //     dateFormat: 'Y-m-d',
+  //     maxDate: new Date().toISOString().split("T")[0],
+  //     defaultDate: new Date().toISOString().split("T")[0]
+  //   });
+  // });
 
   //--------------------- avatar --------
   document.addEventListener('DOMContentLoaded', function() {
