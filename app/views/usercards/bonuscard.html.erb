@@ -10,7 +10,7 @@
         <div class="display-cards-card-bc container">
           <div class="row">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
-              <p class="display-cards-title">Bonus Card</p>
+              <p class="display-cards-title bonus-card-title">Bonus Card</p>
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-center">
               <div class="d-flex flex-column align-items-center justify-content-center">
@@ -40,11 +40,17 @@
                     </div>
                   </div>
                   <div class="horizontal-line"></div>
-                  <p style="text-align: left; font-size: 14px; font: bold">Orbital Period</p>
-                  <p style="text-align: left; font-size: 14px;">The Moon orbits the Earth, completing one orbit approximately every 27.3 days, known as the sidereal month. However, due to the Earth's orbit around the Sun, it takes about 29.5 days for the Moon to complete its phases, from new moon to new moon, which is known as the synodic month.</p>
-                  <%# <p style="text-align: left; font-size: 14px;">Main moons:
-                    <strong style="font-size:18px; font-family: AKONY;"><%= object.average_distance_to_earth</strong> %>
-                  </p>
+                    <div class="bonus-cards">
+                      <div class="content">
+                        <% @cards_in_bonus.each do |id| %>
+                          <% card = Card.find(id) %>
+                          <% object = card.object %>
+                            <div class="g-card">
+                              <%= image_tag "objects/#{object.image_path}" %>
+                            </div>
+                        <% end %>
+                      </div>
+                    </div>
                   <div class="horizontal-line"></div>
                   <div class="display-cards-buttons d-flex justify-content-between">
                     <button class="btn flip-button">
@@ -52,7 +58,7 @@
                     </button>
                     <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
                       <%= f.input :id, as: :hidden %>
-                      <%= f.submit "+ Add to gallery", class: 'm-0 btn' %>
+                      <%= f.submit "+ Add to gallery", class: 'm-3 btn' %>
                     <% end %>
                   </div>
                 </div>
@@ -89,7 +95,7 @@
                 <p style="text-align: left; font: bold;">Funfact</p>
                 <p style="text-align: left;"><%= object.funfact %></p>
               <div class="horizontal-line"></div>
-              <p style="text-align: left;">Description:</p>
+              <p style="text-align: left;">Description</p>
               <p style="text-align: left;"><%= object.summary %></p>
               <div class="horizontal-line"></div>
               <div class="display-cards-buttons d-flex justify-content-between">
@@ -98,7 +104,7 @@
                 </button>
                 <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
                   <%= f.input :id, as: :hidden %>
-                  <%= f.submit "+ Add to gallery", class: 'm-0 btn' %>
+                  <%= f.submit "+ Add to gallery", class: 'm-3 btn' %>
                 <% end %>
               </div>
             </div>

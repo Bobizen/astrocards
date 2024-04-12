@@ -140,3 +140,20 @@
 .flip-card-front {
   z-index: 2;
 }
+
+.bonus-card-title {
+  color: rgb(255, 223, 0);
+  font-size: 26px;
+  font-weight: bolder;
+}
+
+.bonus-cards {
+  flex-grow: 1;
+  overflow: scroll;
+}
+
+.bonus-cards .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}

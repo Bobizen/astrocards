@@ -1,103 +1,124 @@
 <div class="display-cards-bg">
   <%= render "shared/newnavbar" %>
-  <div class="flip-container">
-  <%= render "shared/logo" %>
-    <div class="flipper">
-      <% card = Card.find(@card.card_id) %>
-      <% object = card.object %>
-      <!-- Card front -->
-      <div class="flip-card-front">
-        <div class="display-cards-card container">
-          <div class="row">
-            <div class="col-md-6 d-flex align-items-center justify-content-center" style="padding: 20px">
-              <p style="font-size: 18px; font-family: AKONY;"><%= object.name_en %></p>
-            </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
-              <div class="d-flex flex-column align-items-center justify-content-center">
-                <div class="display-cards-pic" style="margin: -20px;">
-                  <%= image_tag "objects/#{object.image_path}" %>
-                </div>
-                <div class="display-cards-info">
-                  <div class="horizontal-line"></div>
-                  <div class="d-flex justify-content-between">
-                    <div style="width: 50%;">
-                      <p style="text-align: left; font-size: 14px;">Distance from Earth</p>
-                      <p>
-                        <strong style="text-align: left; font-family: AKONY;"><%= object.average_distance_to_earth %></strong>
-                      </p>
-                      <p>/mm km</p>
-                    </div>
-                    <div class="vertical-line"></div>
-                    <div style="width: 50%;">
-                      <p style="text-align: left; font-size: 14px;">Revolution</p>
-                      <p>
-                        <strong style="text-align: left; font-family: AKONY;"><%= object.revolution %></strong>
-                      </p>
-                      <p>/earth years</p>
-                    </div>
+  <div class="container">
+    <div class="flip-container">
+    <%= render "shared/logo" %>
+
+      <div class="flipper">
+        <% card = Card.find(@card.card_id) %>
+        <% object = card.object %>
+        <!-- Card front -->
+        <div class="flip-card-front">
+          <div class="display-cards-card container">
+            <div class="row">
+              <div class="col-md-6 d-flex align-items-center justify-content-center" style="padding: 20px">
+                <p style="font-size: 18px; font-family: AKONY;"><%= object.name_en %></p>
+              </div>
+              <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                  <div class="display-cards-pic" style="margin: -20px;">
+                    <%= image_tag "objects/#{object.image_path}" %>
                   </div>
-                  <div class="horizontal-line"></div>
-                  <p style="text-align: left; font-size: 14px;">Type:
-                    <strong style="font-size:18px; font: bold;"><%= object.classification %></strong>
-                  </p>
-                  <p style="text-align: left; font-size: 14px;">Main moons:
-                    <strong style="font-size: 18px; font: bold;"><%= object.main_moon %></strong>
-                  </p>
-                  <div class="horizontal-line"></div>
-                  <div class="display-cards-buttons d-flex justify-content-between">
-                    <button class="btn flip-card-button">
-                      <i class="fas fa-sync-alt"></i> Flip card
-                    </button>
-                    <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
-                      <%= f.input :id, as: :hidden %>
-                      <%= f.submit "+ Add to gallery", class: 'm-0 btn' %>
+                  <div class="display-cards-info">
+                    <div class="horizontal-line"></div>
+                    <div class="d-flex justify-content-between">
+                      <div style="width: 50%;">
+                        <p style="text-align: left; font-size: 14px;">Distance from Earth</p>
+                        <p>
+                          <strong style="text-align: left; font-family: AKONY;"><%= object.average_distance_to_earth %></strong>
+                        </p>
+                        <p>(billions km)</p>
+                      </div>
+                      <div class="vertical-line"></div>
+                      <div style="width: 50%;">
+                        <p style="text-align: left; font-size: 14px;">Revolution</p>
+                        <p>
+                          <strong style="text-align: left; font-family: AKONY;"><%= object.revolution %></strong>
+                        </p>
+                        <p>(Earth years)</p>
+                      </div>
+                    </div>
+                    <div class="horizontal-line"></div>
+                    <p style="text-align: left; font-size: 14px;">Type:
+                      <span class="ps-1"><strong style="font-size:18px; font: bold;"><%= object.classification.capitalize %></strong></span>
+                    </p>
+                    <% if card.object_type == 'Star' %>
+                      <p style="text-align: left; font-size: 14px;">Number of planets:
+                        <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.planets.count %></strong></span>
+                      </p>
+                    <% elsif card.object_type == 'Planet' %>
+                      <p style="text-align: left; font-size: 14px;">Main moons:
+                        <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.main_moon %></strong></span>
+                      </p>
+                    <% elsif card.object_type == 'Satellite' %>
+                      <p style="text-align: left; font-size: 14px;">Planet:
+                        <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.planet.name_en.capitalize %></strong></span>
+                      </p>
                     <% end %>
+                    <div class="horizontal-line"></div>
+                    <div class="display-cards-buttons">
+                      <div>
+                        <button class="btn flip-card-button">
+                          <i class="fas fa-sync-alt"></i> Flip card
+                        </button>
+                      </div>
+                      <div>
+                        <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
+                          <%= f.input :id, as: :hidden %>
+                          <%= f.button :submit, "+ Add to gallery", class: 'btn mb-3' %>
+                        <% end %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card back -->
-      <div class="flip-card-back">
-        <div class="display-cards-card container">
-          <div class="row">
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
-              <p class="display-cards-title"><%= object.name_en %> Information</p>
-            </div>
-            <div class="display-cards-info">
+        <!-- Card back -->
+        <div class="flip-card-back">
+          <div class="display-cards-card container">
+            <div class="row">
               <div class="col-md-6 d-flex align-items-center justify-content-center">
-                <div class="d-flex justify-content-between">
-                  <div class="display-cards-pic-back">
-                    <%= image_tag "objects/#{object.image_path}" %>
-                  </div>
-                  <div class="vertical-line"></div>
-                  <div style="width: 50%;">
-                    <p style="text-align: left; font: bold;">Rotation</p>
-                    <p>
-                      <strong style="text-align: left; font-family: AKONY;"><%= object.rotation %></strong>
-                    </p>
-                    <p>/Earth days</p>
+                <p class="display-cards-title"><%= object.name_en %> Information</p>
+              </div>
+              <div class="display-cards-info">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                  <div class="d-flex justify-content-between">
+                    <div class="display-cards-pic-back">
+                      <%= image_tag "objects/#{object.image_path}" %>
+                    </div>
+                    <div class="vertical-line"></div>
+                    <div style="width: 50%;">
+                      <p style="text-align: left; font: bold;">Rotation</p>
+                      <p>
+                        <strong style="text-align: left; font-family: AKONY;"><%= object.rotation %></strong>
+                      </p>
+                      <p>/ Earth days</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="horizontal-line"></div>
-                <p style="text-align: left; font: bold;">Funfact</p>
-                <p style="text-align: left;"><%= object.funfact %></p>
-              <div class="horizontal-line"></div>
-              <p style="text-align: left; font: bold;">Description</p>
-              <p style="text-align: left;"><%= object.summary %></p>
-              <div class="horizontal-line"></div>
-              <div class="display-cards-buttons d-flex justify-content-between">
-                <button class="btn flip-card-button">
-                  <i class="fas fa-sync-alt"></i> Flip card
-                </button>
-                <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
-                  <%= f.input :id, as: :hidden %>
-                  <%= f.submit "+ Add to gallery", class: 'm-0 btn' %>
-                <% end %>
+                <div class="horizontal-line"></div>
+
+                <div class="object-content">
+                    <p style="text-align: left; font: bold;">Funfact</p>
+                    <p style="text-align: left;"><%= object.funfact %></p>
+                  <div class="horizontal-line"></div>
+                  <p style="text-align: left; font: bold;">Description</p>
+                  <p style="text-align: left;"><%= object.summary %></p>
+                </div>
+
+                <div class="horizontal-line"></div>
+                <div class="display-cards-buttons d-flex justify-content-between">
+                  <button class="btn flip-card-button">
+                    <i class="fas fa-sync-alt"></i> Flip card
+                  </button>
+                  <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
+                    <%= f.input :id, as: :hidden %>
+                    <%= f.submit "+ Add to gallery", class: 'mb-3 btn' %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
