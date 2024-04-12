@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_12_101606) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_12_142731) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -109,6 +109,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_12_101606) do
     t.datetime "updated_at", null: false
     t.text "summary"
     t.text "funfact"
+    t.integer "moon_count"
+    t.date "first_discoveries"
+    t.text "featured_moons"
   end
 
   create_table "stars", force: :cascade do |t|
