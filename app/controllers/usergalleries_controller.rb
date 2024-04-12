@@ -16,10 +16,12 @@ class UsergalleriesController < ApplicationController
     @cards_in_gallery = Usergallerycard.where(usergallerie: @gallery)
     @supports = Gallerysupport.all
 
-    # @from_ranking = true if URI.parse(request.referer).path == 'usergalleries/ranking'
+    @from_ranking = URI.parse(request.referer).path == '/usergalleries/ranking'
 
     if current_user.id == @gallery.user_id
       @userstatus = true
+    else
+      @userstatus = false
     end
   end
 

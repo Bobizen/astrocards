@@ -9,8 +9,10 @@ export default class extends Controller {
 
   fire() {
     // display the border
+    console.log(this.userstatusValue)
     if (this.userstatusValue === true) {
       this.selectedelementTarget.classList.toggle("active-border")
+
       var button = document.getElementById('btn-delete');
       button.classList.remove('d-none')
 
