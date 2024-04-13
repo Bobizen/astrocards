@@ -1,6 +1,6 @@
 /* Set background image properties */
 .display-cards-bg-bc {
-  height: 135vh;
+  height: 100vh;
   background-image: asset-url("background/background2.jpg");
   background-size: cover;
   background-position: center;
@@ -50,9 +50,20 @@
 }
 
 /* Title styling */
-.display-cards-title {
-  font-size: 18px;
-  padding: 20px;
+.display-bonuscards-title {
+  padding-top: 1rem;
+}
+
+.bonus-card-title {
+  color: rgb(255, 223, 0);
+  font-size: 26px;
+  font-weight: bolder;
+}
+
+.bonus-card-name {
+  font-size: 16px;
+  font-family: AKONY;
+  margin-bottom:0;
 }
 
 /* Image styling */
@@ -142,12 +153,6 @@
   z-index: 2;
 }
 
-.bonus-card-title {
-  color: rgb(255, 223, 0);
-  font-size: 26px;
-  font-weight: bolder;
-}
-
 .bonus-cards {
   flex-grow: 1;
   overflow: scroll;
@@ -157,4 +162,27 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+}
+
+.family-member {
+  display: flex;
+  padding-left: 1rem;
+  align-items: center;
+}
+
+.family-member .object-type {
+  text-align: left;
+  font-size: 14px;
+}
+
+.family-member .object-name {
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.family-member img {
+  width: 25px;
+  height: 25px;
 }

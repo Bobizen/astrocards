@@ -9,57 +9,53 @@
       <div class="flip-card-front">
         <div class="display-cards-card-bc container">
           <div class="row">
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
-              <p class="display-cards-title bonus-card-title">Bonus Card</p>
-            </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
-              <div class="d-flex flex-column align-items-center justify-content-center">
-                <div class="display-cards-pic">
-                  <%= image_tag "objects/#{object.image_path}" %>
-                </div>
-                <p style="font-size: 18px; font-family: AKONY;">
-                  <i class="fas fa-star"></i>
-                  <%= object.name_en %>
-                  <i class="fas fa-star"></i>
-                </p>
-                <div class="display-cards-info">
-                  <div class="horizontal-line"></div>
-                    <div>
-                      <p style="text-align: left; font-size: 14px; font-family: AKONY;">Family Members:</p>
-                      <% @cards_in_bonus.each do |id| %>
-                        <% card = Card.find(id) %>
-                        <% objectolivier = card.object %>
-                        <% if card.object_type == 'Planet' %>
-                          <p style="text-align: left; font-size: 14px;">Planet:
-                            <span class="ps-1"><strong style="font-size: 18px; font-weight: bold;"><%= objectolivier.name_en.capitalize %></strong></span>
-                          </p>
-                        <% elsif card.object_type == 'Satellite' %>
-                          <p style="text-align: left; font-size: 14px;">Satellite:
-                            <span class="ps-1"><strong style="font-size: 18px; font-weight: bold;"><%= objectolivier.name_en.capitalize %></strong></span>
-                          </p>
+              <p class="display-bonuscards-title bonus-card-title">
+                <i class="fas fa-star"></i> Bonus Card <i class="fas fa-star"></i>
+              </p>
+              <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                  <div class="display-cards-pic">
+                    <%= image_tag "objects/#{object.image_path}" %>
+                  </div>
+                  <p class="bonus-card-name">
+                    <%= object.name_en %>
+                  </p>
+                  <div class="display-cards-info">
+                    <div class="horizontal-line"></div>
+                    <div class="object-content">
+                      <div>
+                        <p style="text-align: left; font-size: 14px; font-family: AKONY;">Family Members</p>
+                        <% @cards_in_bonus.each do |id| %>
+                          <% card = Card.find(id) %>
+                          <% objectolivier = card.object %>
+                          <div class="family-member">
+                              <div><%= image_tag "objects/#{objectolivier.image_path}"%></div>
+                              <div><span class="object-name"><%= objectolivier.name_en.capitalize %></span></div>
+                              <div class="object-type"><%= "(#{card.object_type})" %></div>
+                          </div>
                         <% end %>
+                      </div>
+                      <div class="horizontal-line"></div>
+                      <div style="text-align: left; font-size: 14px;">
+                        <p>Moon Count:<%= object.moon_count %></p>
+                        <p>First Discoveries:</p>
+                        <p><%= object.first_discoveries %></P>
+                        <p>Featured Moons:</p>
+                        <p><%= object.featured_moons %></p>
+                      </div>
+                    </div>
+                    <div class="horizontal-line"></div>
+                    <div class="display-cards-buttons d-flex justify-content-between">
+                      <button class="btn flip-button">
+                        <i class="fas fa-sync-alt"></i> Flip card
+                      </button>
+                      <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
+                        <%= f.input :id, as: :hidden %>
+                        <%= f.submit "+ Add to gallery", class: 'm-3 btn' %>
                       <% end %>
-                  </div>
-                  <div class="horizontal-line"></div>
-                  <div style="text-align: left; font-size: 14px;">
-                    <p>Moon Count:<%= object.moon_count %></p>
-                    <p>First Discoveries:</p>
-                    <p><%= object.first_discoveries %></P>
-                    <p>Featured Moons:</p>
-                    <p><%= object.featured_moons %></p>
-                  </div>
-                  <div class="horizontal-line"></div>
-                  <div class="display-cards-buttons d-flex justify-content-between">
-                    <button class="btn flip-button">
-                      <i class="fas fa-sync-alt"></i> Flip card
-                    </button>
-                    <%= simple_form_for(@card, url: usergallery_usergallerycards_path(@usergallery), method: 'POST') do |f| %>
-                      <%= f.input :id, as: :hidden %>
-                      <%= f.submit "+ Add to gallery", class: 'm-3 btn' %>
-                    <% end %>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -70,7 +66,7 @@
         <div class="display-cards-card-bc container">
           <div class="row">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
-              <p class="display-cards-title"><%= object.name_en %> Information</p>
+              <p class="display-bonuscards-title"><%= object.name_en %></p>
             </div>
             <div class="display-cards-info">
               <div class="col-md-6 d-flex align-items-center justify-content-center">
@@ -89,11 +85,13 @@
                 </div>
               </div>
               <div class="horizontal-line"></div>
+              <div class="object-content">
                 <p style="text-align: left; font: bold;">Funfact</p>
                 <p style="text-align: left;"><%= object.funfact %></p>
-              <div class="horizontal-line"></div>
-              <p style="text-align: left;">Description</p>
-              <p style="text-align: left;"><%= object.summary %></p>
+                <div class="horizontal-line"></div>
+                <p style="text-align: left;">Description</p>
+                <p style="text-align: left;"><%= object.summary %></p>
+              </div>
               <div class="horizontal-line"></div>
               <div class="display-cards-buttons d-flex justify-content-between">
                 <button class="btn flip-button">
