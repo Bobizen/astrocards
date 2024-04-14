@@ -14,7 +14,6 @@
   justify-content: center;
   align-items: center;
   text-align: center; /* Center text */
-  // overflow: scroll;
   max-height: 100vh;
 
   background-color: rgba(250, 250, 250, 0.3);
@@ -31,7 +30,7 @@
 
 /* Flip card and +Add to gallery on left and right */
 .display-cards-buttons {
-  margin-top: 20px;
+  // margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,12 +61,12 @@
   height: auto; /* Maintain aspect ratio */
 }
 
-.display-cards-pic-back {
-  width: 50%;
+.display-detailcards-pic-back {
+  width: 100%;
 }
 
-.display-cards-pic-back img {
-  width: 100%; /* Set image width to fill parent container */
+.display-detailcards-pic-back img {
+  width: 50%; /* Set image width to fill parent container */
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -107,24 +106,21 @@
 .flip-container {
   perspective: 1000px; /* Add perspective for the 3D effect */
 }
-  /* flip the pane when hovered */
-  // .flip-container:hover .flipper, .flip-container.hover .flipper {
-  //   transform: rotateY(180deg);
-  // }
-.flip-container .flipper.flipped {
-  transform: rotateY(180deg);
-}
 
 /* flip speed goes here */
 .flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-	position: relative;
+  position: relative;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flipped {
+  transform: rotateY(180deg);
 }
 
 /* Card front and back */
-.flip-card-front,
-.flip-card-back {
+.flip-dcard-front,
+.flip-dcard-back {
   position: absolute; /* Set position to absolute */
   // top: 0; /* Align to the top */
   // left: 0; /* Align to the left */
@@ -134,19 +130,47 @@
 }
 
 /* Back face of the card */
-.flip-card-back {
+.flip-dcard-back {
   transform: rotateY(180deg); /* Initially rotate to show the back face */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
 }
 
-.flip-card-front {
+.flip-dcard-front {
   z-index: 1;
 }
 
 .object-content {
   overflow: scroll;
-  max-height: 250px;
+  max-height: 260px;
+}
+
+.object-front-content {
+  overflow: scroll;
+  max-height: 280px;
+}
+
+.content-front {
+  color: white;
+  text-align: left;
+
+  .cf-title {
+    font-size: 16px;
+  }
+
+  .cf-content {
+    padding-left:1rem;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .red-content {
+    color: red;
+  }
+
+  .blue-content {
+    color: aqua;
+  }
 }

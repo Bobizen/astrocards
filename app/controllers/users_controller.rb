@@ -34,7 +34,10 @@ class UsersController < ApplicationController
     #   usercard.card = card
     #   usercard.save
     # end
-    data = { planet: @planets[0].object, satellite: @planets[1].object }
+    data = { object1: { type: @planets[0].object_type,
+                        object: @planets[0].object },
+             object2: { type: @planets[1].object_type,
+                        object: @planets[1].object } }
     render json: data
   end
 end

@@ -47,6 +47,11 @@ a {
   border-radius: 25px;
 }
 
+.intro-text {
+  color: white;
+  font-size: 20px;
+}
+
 .an{
   animation-name: astro;
   animation-duration: 5s;
@@ -91,4 +96,11 @@ a {
     /* Réinitialiser la transformation */
     transform: scale(1);
   }
+}
+
+.perso-modal-title {
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-size: 22px;
 }
