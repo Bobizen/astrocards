@@ -7,6 +7,9 @@
         <%= image_tag "/assets/objects/northstar.png" %>
       <% end %>
     </div>
+    <div class="hello-card">
+      <%= "Hi, #{current_user.nickname}!" %>
+    </div>
     <div id="aicard" class="ai-card">
       <%= @response %>
     </div>
@@ -15,7 +18,12 @@
     </button>
   <% else %>
     <div class="an">
-      <%= image_tag "/assets/Logo/astro-card-white.png" %>
+      <%= image_tag "logo/astro-card-white.png" %>
+      <div class="mt-2" data-controller="introtyped">
+        <span id="e1" class="intro-text ps-2"  data-introtyped-target="itema" data-todisplay="Collect Astro Cards"></span><br>
+        <span id="e2" class="intro-text ps-3" data-introtyped-target="itemb" data-todisplay="Discover and Learn about space"></span><br>
+        <span id="e3" class="intro-text ps-4" data-introtyped-target="itemc" data-todisplay="Share your cards in your Gallery!"></span>
+      </div>
     </div>
   <% end %>
 </div>
@@ -24,8 +32,8 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <%# <h5 class="modal-title" id="exampleModalLabel">Cards of the day</h5> %>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <p class="modal-title perso-modal-title" id="exampleModalLabel">You got 2 new cards!</p>
+        <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
       </div>
       <div class="modal-body" id="modal-body" >
 
@@ -57,36 +65,19 @@
                             <div class="col-md-6 d-flex align-items-center justify-content-center">
                               <div class="d-flex flex-column align-items-center justify-content-center">
                                 <div class="display-cards-pic">
-                                  <img src="/assets/objects/${data.planet.image_path}">
+                                  <img src="/assets/objects/${data.object1.object.image_path}">
                                 </div>
-                                <p style="font-size: 18px; font-family: AKONY;">${data.planet.name_en}</p>
+                                <p style="font-size: 18px; font-family: AKONY;">${data.object1.object.name_en}</p>
                                 <div class="display-cards-info">
                                   <div class="horizontal-line"></div>
-                                  <div class="d-flex justify-content-between">
-                                    <div>
-                                      <p style="text-align: left;">Distance from Earth:</p>
-                                      <p>
-                                        <strong style="text-align: left;"> ${data.planet.revolution}</strong>
-                                      /mm km
-                                      </p>
-                                    </div>
-                                    <div class="vertical-line"></div>
-                                    <div>
-                                      <p style="text-align: left;">Revolution:</p>
-                                      <p>
-                                        <strong style="text-align: left;">${data.planet.revolution}</strong>
-                                      /earth years
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div class="horizontal-line"></div>
-                                  <p style="text-align: left; font-size: 14px;">Type of planet:
-                                    <strong style="font-size:18px;">${data.planet.classification}</strong>
+                                  <p style="text-align: left; font-size: 16px;">Type of object
+                                    <strong style="font-size:18px; padding-left:1rem;">${data.object1.type}</strong>
                                   </p>
-                                  <p style="text-align: left; font-size: 14px;">Main moons:
-                                    <strong style="font-size:18px;">${data.planet.classification}</strong>
+                                  <p style="text-align: left; font-size: 16px;">Class
+                                    <strong style="font-size:18px;padding-left:1rem;">${data.object1.object.classification}</strong>
                                   </p>
                                   <div class="horizontal-line"></div>
+                                  <p class="font-weight-bold" style="font-size: 20px;">Get more in your collection</p>
                                 </div>
                               </div>
                             </div>
@@ -107,36 +98,19 @@
                               <div class="col-md-6 d-flex align-items-center justify-content-center">
                                 <div class="d-flex flex-column align-items-center justify-content-center">
                                   <div class="display-cards-pic">
-                                    <img src="/assets/objects/${data.satellite.image_path}">
+                                    <img src="/assets/objects/${data.object2.object.image_path}">
                                   </div>
-                                  <p style="font-size: 18px; font-family: AKONY;">${data.satellite.name_en}</p>
+                                  <p style="font-size: 18px; font-family: AKONY;">${data.object2.object.name_en}</p>
                                   <div class="display-cards-info">
                                     <div class="horizontal-line"></div>
-                                    <div class="d-flex justify-content-between">
-                                      <div>
-                                        <p style="text-align: left;">Distance from Earth:</p>
-                                        <p>
-                                          <strong style="text-align: left;"> ${data.satellite.revolution}</strong>
-                                        /mm km
-                                        </p>
-                                      </div>
-                                      <div class="vertical-line"></div>
-                                      <div>
-                                        <p style="text-align: left;">Revolution:</p>
-                                        <p>
-                                          <strong style="text-align: left;">${data.satellite.revolution}</strong>
-                                        /earth years
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div class="horizontal-line"></div>
-                                    <p style="text-align: left; font-size: 14px;">Type of planet:
-                                      <strong style="font-size:18px;">${data.satellite.classification}</strong>
+                                    <p style="text-align: left; font-size: 16px;">Type of object
+                                      <strong style="font-size:18px; padding-left:1rem;">${data.object2.type}</strong>
                                     </p>
-                                    <p style="text-align: left; font-size: 14px;">Main moons:
-                                      <strong style="font-size:18px;">${data.satellite.classification}</strong>
+                                    <p style="text-align: left; font-size: 16px;">Class
+                                      <strong style="font-size:18px;padding-left:1rem;">${data.object2.object.classification}</strong>
                                     </p>
                                     <div class="horizontal-line"></div>
+                                    <p class="font-weight-bold" style="font-size: 20px;">Get more in your collection</p>
                                   </div>
                                 </div>
                               </div>
@@ -144,18 +118,20 @@
                           </div>
 
                       </div>
-                      </div>
                   </div>
-                  </div>
+                </div>
+                </div>
 
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
+    </div>
     `
     })});
 </script>

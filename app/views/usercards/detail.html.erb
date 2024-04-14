@@ -1,14 +1,14 @@
 <div class="display-cards-bg">
   <%= render "shared/newnavbar" %>
   <div class="container">
-    <div class="flip-container">
     <%= render "shared/logo" %>
 
+    <div class="flip-container">
       <div class="flipper">
         <% card = Card.find(@card.card_id) %>
         <% object = card.object %>
         <!-- Card front -->
-        <div class="flip-card-front">
+        <div class="flip-dcard-front">
           <div class="display-cards-card container">
             <div class="row">
               <div class="col-md-6 d-flex align-items-center justify-content-center" style="padding: 20px">
@@ -21,40 +21,57 @@
                   </div>
                   <div class="display-cards-info">
                     <div class="horizontal-line"></div>
-                    <div class="d-flex justify-content-between">
-                      <div style="width: 50%;">
-                        <p style="text-align: left; font-size: 14px;">Distance from Earth</p>
-                        <p>
-                          <strong style="text-align: left; font-family: AKONY;"><%= object.average_distance_to_earth %></strong>
-                        </p>
-                        <p>(millions km)</p>
+                    <div class="object-front-content">
+
+                      <div class="d-flex justify-content-between">
+                        <div class="content-front">
+                          <div class="cf-title">Diameter</div>
+                          <div class="cf-content"><%="#{object.diameter} km" %></div>
+                          <div class="cf-title">Gravity</div>
+                          <div class="cf-content"><%="#{object.gravity} m/s²" %></div>
+                        </div>
+
+                        <div class="vertical-line"></div>
+
+                        <div class="content-front">
+                          <div class="cf-title">Temperature min</div>
+                          <div class="cf-content"><%="#{object.temp_min} °C" %></div>
+                          <div class="cf-title">Temperature max</div>
+                          <div class="cf-content"><%="#{object.temp_max} °C" %></div>
+
+                        </div>
+
                       </div>
-                      <div class="vertical-line"></div>
-                      <div style="width: 50%;">
-                        <p style="text-align: left; font-size: 14px;">Revolution</p>
-                        <p>
-                          <strong style="text-align: left; font-family: AKONY;"><%= object.revolution %></strong>
+                      <div class="horizontal-line"></div>
+                      <p style="text-align: left; font-size: 14px;">Type
+                        <span class="ps-1"><strong style="font-size:18px; font: bold;"><%= object.classification.capitalize %></strong></span>
+                      </p>
+                      <% if card.object_type == 'Star' %>
+                        <p style="text-align: left; font-size: 14px;">Distance to earth
+                          <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.distance_to_earth %></strong></span>
                         </p>
-                        <p>(Earth years)</p>
-                      </div>
+                        <p style="text-align: left; font-size: 14px;">Number of planets
+                          <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.planets.count %></strong></span>
+                        </p>
+                      <% elsif card.object_type == 'Planet' %>
+                        <p style="text-align: left; font-size: 14px;">Distance to sun
+                          <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.distance_from_star %></strong></span>
+                        </p>
+                        <p style="text-align: left; font-size: 14px;">Main moons:
+                          <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.main_moon %></strong></span>
+                        </p>
+                      <% elsif card.object_type == 'Satellite' %>
+                        <p style="text-align: left; font-size: 14px;">Planet:
+                          <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.planet.name_en.capitalize %></strong></span>
+                        </p>
+                        <p style="text-align: left; font-size: 14px;">Distance to planet
+                          <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.distance_from_planet %></strong></span>
+                        </p>
+                      <% end %>
+                      <p style="text-align: left; font-size: 14px;">Estimated distance to earth
+                          <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%="#{object.average_distance_to_earth} million km"%></strong></span>
+                        </p>
                     </div>
-                    <div class="horizontal-line"></div>
-                    <p style="text-align: left; font-size: 14px;">Type:
-                      <span class="ps-1"><strong style="font-size:18px; font: bold;"><%= object.classification.capitalize %></strong></span>
-                    </p>
-                    <% if card.object_type == 'Star' %>
-                      <p style="text-align: left; font-size: 14px;">Number of planets:
-                        <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.planets.count %></strong></span>
-                      </p>
-                    <% elsif card.object_type == 'Planet' %>
-                      <p style="text-align: left; font-size: 14px;">Main moons:
-                        <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.main_moon %></strong></span>
-                      </p>
-                    <% elsif card.object_type == 'Satellite' %>
-                      <p style="text-align: left; font-size: 14px;">Planet:
-                        <span class="ps-1"><strong style="font-size: 18px; font: bold;"><%= object.planet.name_en.capitalize %></strong></span>
-                      </p>
-                    <% end %>
                     <div class="horizontal-line"></div>
                     <div class="display-cards-buttons">
                       <div>
@@ -77,30 +94,30 @@
         </div>
 
         <!-- Card back -->
-        <div class="flip-card-back">
+        <div class="flip-dcard-back">
           <div class="display-cards-card container">
             <div class="row">
-              <div class="col-md-6 d-flex align-items-center justify-content-center">
-                <p class="display-cards-title"><%= object.name_en %> Information</p>
-              </div>
               <div class="display-cards-info">
-                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div>
+                  <div class="display-detailcards-pic-back">
+                    <%= image_tag "objects/#{object.image_path}" %>
+                  </div>
                   <div class="d-flex justify-content-between">
-                    <div class="display-cards-pic-back">
-                      <%= image_tag "objects/#{object.image_path}" %>
-                    </div>
-                    <div class="vertical-line"></div>
                     <div style="width: 50%;">
-                      <p style="text-align: left; font: bold;">Rotation</p>
-                      <p>
-                        <strong style="text-align: left; font-family: AKONY;"><%= object.rotation %></strong>
-                      </p>
-                      <p>/ Earth days</p>
+                      <p style="text-align: center; font: bold; margin-bottom:5px;">Rotation</p>
+                      <p style="margin-bottom:5px;">
+                        <strong style="text-align: center; font-family: AKONY;"><%= object.rotation %></strong></p>
+                      <span style="text-align: center">(earth day)</span>
+                    </div>
+                    <div style="width: 50%">
+                      <p style="text-align: center; font: bold; margin-bottom:5px;">Revolution</p>
+                      <p style="margin-bottom:5px;">
+                        <strong style="text-align: center; font-family: AKONY;"><%= object.revolution %></strong></p>
+                      <span style="text-align: center">(earth year)</span>
                     </div>
                   </div>
                 </div>
                 <div class="horizontal-line"></div>
-
                 <div class="object-content">
                     <p style="text-align: left; font: bold;">Funfact</p>
                     <p style="text-align: left;"><%= object.funfact %></p>
@@ -108,7 +125,6 @@
                   <p style="text-align: left; font: bold;">Description</p>
                   <p style="text-align: left;"><%= object.summary %></p>
                 </div>
-
                 <div class="horizontal-line"></div>
                 <div class="display-cards-buttons d-flex justify-content-between">
                   <button class="btn flip-card-button">
@@ -129,30 +145,6 @@
 </div>
 
 <script>
-// // Trigger flip effect when the flip-card-button is clicked
-// $('.flip-card-button').on('click', function() {
-//   // Find the parent flip-container
-//   var flipContainer = $(this).closest('.flip-container');
-//   // Toggle the .flipped class
-//   flipContainer.find('.flipper').toggleClass('flipped');
-// });
-
-// // Trigger flip effect when clicking on the flip-card-back
-// $('.flip-card-back').on('click', function() {
-//   // Find the parent flip-container
-//   var flipContainer = $(this).closest('.flip-container');
-//   // If the flipper is flipped (back side is showing), flip it back to the front
-//   if (flipContainer.find('.flipper').hasClass('flipped')) {
-//     flipContainer.find('.flipper').removeClass('flipped');
-//   }
-// });
-
-// // Prevent flip effect when hovering over the flip-container
-// $('.flip-container').on('mouseenter mouseleave', function(e) {
-//   if (!$(this).find('.flipper').hasClass('flipped')) {
-//     $(this).toggleClass('hover', e.type === 'mouseenter');
-//   }
-// });
 // Trigger flip effect when the flip-card-button is clicked
 document.querySelectorAll('.flip-card-button').forEach(function(button) {
   button.addEventListener('click', function() {
@@ -164,16 +156,17 @@ document.querySelectorAll('.flip-card-button').forEach(function(button) {
 });
 
 // Trigger flip effect when clicking on the flip-card-back
-  document.querySelectorAll('.flip-card-back').forEach(function(back) {
-    back.addEventListener('click', function() {
-      // Find the parent flip-container
-      var flipContainer = this.closest('.flip-container');
-      // If the flipper is flipped (back side is showing), flip it back to the front
-      if (flipContainer.querySelector('.flipper').classList.contains('flipped')) {
-        flipContainer.querySelector('.flipper').classList.remove('flipped');
-      }
-    });
-  });
+  // document.querySelectorAll('.flip-dcard-back').forEach(function(back) {
+  //   back.addEventListener('click', function() {
+  //     // Find the parent flip-container
+  //     var flipContainer = this.closest('.flip-container');
+  //     console.log("flipped")
+  //     // If the flipper is flipped (back side is showing), flip it back to the front
+  //     if (flipContainer.querySelector('.flipper').classList.contains('flipped')) {
+  //       flipContainer.querySelector('.flipper').classList.remove('flipped');
+  //     }
+  //   });
+  // });
 
   // Prevent flip effect when hovering over the flip-container
   document.querySelectorAll('.flip-container').forEach(function(container) {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_12_142731) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_13_224925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,6 +75,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_12_142731) do
     t.bigint "star_id", null: false
     t.text "average_distance_to_earth"
     t.text "main_moon"
+    t.float "diameter"
+    t.float "gravity"
+    t.integer "temp_min"
+    t.integer "temp_max"
     t.index ["star_id"], name: "index_planets_on_star_id"
   end
 
@@ -95,6 +99,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_12_142731) do
     t.bigint "planet_id", null: false
     t.text "average_distance_to_earth"
     t.text "main_moon"
+    t.float "diameter"
+    t.float "gravity"
+    t.integer "temp_min"
+    t.integer "temp_max"
     t.index ["planet_id"], name: "index_satellites_on_planet_id"
   end
 
@@ -130,6 +138,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_12_142731) do
     t.float "rotation"
     t.text "main_moon"
     t.float "average_distance_to_earth"
+    t.float "diameter"
+    t.float "gravity"
+    t.integer "temp_min"
+    t.integer "temp_max"
+    t.string "distance_to_earth"
   end
 
   create_table "usercards", force: :cascade do |t|

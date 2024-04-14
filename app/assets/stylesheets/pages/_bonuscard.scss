@@ -1,10 +1,10 @@
 /* Set background image properties */
 .display-cards-bg-bc {
-  height: 100vh;
   background-image: asset-url("background/background2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 100vh;
 }
 
 /* Center align everything */
@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   text-align: center; /* Center text */
-  // overflow: scroll;
+  max-height: 100vh;
 
   background-color: transparent;
   box-sizing: border-box;
@@ -28,27 +28,6 @@
   border: 5px solid white;
 }
 
-/* Flip card and +Add to gallery on left and right */
-.display-cards-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.display-cards-buttons button {
-  margin: 0 10px; /* Adjust space between buttons */
-  border: none; /* Remove border */
-  background-color: transparent; /* Remove background color */
-  padding: 20px; /* Remove padding */
-  outline: none; /* Remove outline */
-}
-
-/* Add space between icon and button text */
-.display-cards-buttons button .button-text::before {
-  content: "\00a0"; /* Insert space */
-}
-
 /* Title styling */
 .display-bonuscards-title {
   padding-top: 1rem;
@@ -56,12 +35,13 @@
 
 .bonus-card-title {
   color: rgb(255, 223, 0);
-  font-size: 26px;
-  font-weight: bolder;
+  font-size: 22px;
+  // font-weight: bolder;
 }
 
 .bonus-card-name {
-  font-size: 16px;
+  color: white;
+  font-size: 14px;
   font-family: AKONY;
   margin-bottom:0;
 }
@@ -82,8 +62,9 @@
 }
 
 /* Info section styling */
-.display-cards-info {
+.display-bcards-info {
   width: 100%; /* Info section width */
+  flex-grow: 1;
 }
 
 /* Responsive image size adjustment */
@@ -113,25 +94,9 @@
   color: white;
 }
 
-/* Flip card container */
-.flip-container {
-  perspective: 1000px; /* Add perspective for the 3D effect */
-}
-  /* flip the pane when hovered */
-.flip-container:hover .flipper, .flip-container.hover .flipper {
-  transform: rotateY(180deg);
-}
-
-/* flip speed goes here */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-	position: relative;
-}
-
 /* Card front and back */
-.flip-card-front,
-.flip-card-back {
+.flip-bcard-front,
+.flip-bcard-back {
   position: absolute; /* Set position to absolute */
   // top: 0; /* Align to the top */
   // left: 0; /* Align to the left */
@@ -141,21 +106,26 @@
 }
 
 /* Back face of the card */
-.flip-card-back {
+.flip-bcard-back {
   transform: rotateY(180deg); /* Initially rotate to show the back face */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
 }
 
-.flip-card-front {
-  z-index: 2;
+.flip-bcard-front {
+  z-index: 1;
 }
 
 .bonus-cards {
   flex-grow: 1;
   overflow: scroll;
+}
+
+.bonus-front-content {
+  overflow: scroll;
+  max-height: 200px;
 }
 
 .bonus-cards .content {
