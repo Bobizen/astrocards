@@ -14,9 +14,7 @@ class PagesController < ApplicationController
           temperature: 0.7
         }
       ).dig("choices", 0, "message", "content")
-
-
-      end
+    end
   end
 
   def privacy_statement

@@ -53,6 +53,7 @@
     button.addEventListener('click', (e) => {
     fetch('newcards').then(response => response.json()).then(data => {
     aicard.classList.add("d-none");
+    console.log(data)
     modalBody.innerHTML = `
      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
@@ -65,7 +66,7 @@
                             <div class="col-md-6 d-flex align-items-center justify-content-center">
                               <div class="d-flex flex-column align-items-center justify-content-center">
                                 <div class="display-cards-pic">
-                                  <img src="assets/objects/${data.object1.object.image_path}">
+                                  <img src="${data.object1.image_url}">
                                 </div>
                                 <p style="font-size: 18px; font-family: AKONY;">${data.object1.object.name_en}</p>
                                 <div class="display-cards-info">
@@ -98,7 +99,7 @@
                               <div class="col-md-6 d-flex align-items-center justify-content-center">
                                 <div class="d-flex flex-column align-items-center justify-content-center">
                                   <div class="display-cards-pic">
-                                    <img src="assets/objects/${data.object2.object.image_path}">
+                                    <img src="${data.object2.image_url}">
                                   </div>
                                   <p style="font-size: 18px; font-family: AKONY;">${data.object2.object.name_en}</p>
                                   <div class="display-cards-info">

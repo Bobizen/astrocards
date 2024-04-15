@@ -35,8 +35,10 @@ class UsersController < ApplicationController
     #   usercard.save
     # end
     data = { object1: { type: @planets[0].object_type,
+                        image_url: ActionController::Base.helpers.image_url("objects/#{@planets[0].object.image_path}"),
                         object: @planets[0].object },
              object2: { type: @planets[1].object_type,
+                        image_url: ActionController::Base.helpers.image_url("objects/#{@planets[1].object.image_path}"),
                         object: @planets[1].object } }
     render json: data
   end
