@@ -59,6 +59,7 @@ gem "sidekiq", "~> 7"
 gem "sidekiq-failures"
 gem 'popper_js'
 gem 'jquery-rails'
+gem "cloudinary"
 
 
 group :development, :test do

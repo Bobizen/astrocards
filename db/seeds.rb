@@ -7,11 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # destroy all before seed
-Satellite.destroy_all
-Planet.destroy_all
-Star.destroy_all
-Special.destroy_all
-Card.destroy_all
+# Satellite.destroy_all
+# Planet.destroy_all
+# Star.destroy_all
+# Special.destroy_all
+# Card.destroy_all
 
 # Star: Sun
 sun = Star.create(name_en: "Sun", name_fr: "soleil", diameter: 1_392_684, gravity: 274, distance_to_earth: "150 x 10^6 km (1 UA)", temp_min: 5500, temp_max: 3_000_000, image_path: "sun.png", classification: "yellow dwarf", revolution: "0", rotation: "0", main_moon:" ", summary: "The Sun is a big, hot star in space that shines brightly in our sky during the day. It's like a giant ball of fire, but it's not really on fire like a campfire. Instead, it's made up of super-hot gas called plasma. The Sun is so big that it's much larger than any planet, including Earth!", funfact: "Ever noticed the Sun's got some funky pockmarks on its face? Yep, those are sunspots! They're like the Sun's version of zits, but don't worry, they're still super hot! And hey, the Sun's got some wild moves too - it throws these epic tantrums called solar flares and solar storms. But no need to panic, Earth's got its cosmic sunscreen, aka the atmosphere, keeping us safe from the Sun's shenanigans!")

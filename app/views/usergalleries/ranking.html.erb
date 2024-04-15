@@ -32,7 +32,7 @@
               </div>
               <div class="r-card-avatar">
                 <% if usergallery.avatar.attached? %>
-                  <%= image_tag url_for(usergallery.avatar) %>
+                  <%= cl_image_tag usergallery.avatar.key %>
                 <% else %>
                   <%= image_tag "objects/unknow card.png", alt:'Profile Picture' %>
                 <% end %>

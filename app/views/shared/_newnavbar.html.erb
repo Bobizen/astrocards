@@ -16,7 +16,7 @@
       <div>Profile</div>
     <% end %>
     <% if current_user.avatar.attached? %>
-      <%= image_tag url_for(current_user.avatar), class: 'disc l6 toggle' %>
+      <%= cl_image_tag current_user.avatar.key, class: 'disc l6 toggle' %>
     <% else %>
       <%= image_tag "objects/unknow card.png", alt:'Profile Picture', class: 'disc l6 toggle' %>
     <% end %>
