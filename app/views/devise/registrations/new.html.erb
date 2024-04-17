@@ -12,9 +12,9 @@
               <input type="file" id="avatar" name="user[avatar]" class="avatar-input" accept="image/*" >
             </div> %>
 
-              <div class="avatar-container">
-                <div class="avatar-preview" id="avatar-preview">Upload Your Avatar</div>
-                <%= f.file_field :avatar, class: "avatar-input", accept: "image/*",  id: 'avatar' %>
+              <div class="avatar-container" data-controller="avatar">
+                <div class="avatar-preview" id="avatar-preview" data-avatar-target="avatarpreview">Upload Your Avatar</div>
+                <%= f.file_field :avatar, class: "avatar-input", accept: "image/*",  id: 'avatar', data: { avatar_target: 'avatar', action: 'change->avatar#loadavatar' } %>
               </div>
 
 
@@ -37,59 +37,29 @@
             <div class="form-birthday">
               <%# <label class="control-label" style="display:none;">Birthday</label> %>
               <%= f.input :birthdate, as: :string, label:"Birthday", class: "form-control", input_html: { data: { controller: "datepicker", datepicker_frompage_value: '01-01-2017' } } %>
-
-
             </div>
           </div>
-      </div>
-    </div>
 
-      <!-- Checkbox for privacy agreement -->
-      <div class="form-privacystatement">
-        <div class="form-check">
-          <%= f.check_box :privacy_statement, class: "form-check-input" %>
-          <label class="form-check-label">I agree to the "<%= link_to "Privacy Statement", privacy_statement_path, target: "_blank" %>"</label>
-        </div>
-      </div>
+          <!-- Checkbox for privacy agreement -->
+          <div class="form-privacystatement">
+            <div class="form-check">
+              <%= f.check_box :privacy_statement, class: "form-check-input" %>
+              <label class="form-check-label">I agree to the "<%= link_to "Privacy Statement", privacy_statement_path, target: "_blank" %>"</label>
+            </div>
+          </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Sign Up" %>
+          <div class="form-actions">
+            <%= f.submit "Sign Up" %>
+          </div>
         <% end %>
-      </div>
+
+
+    </div>
+  </div>
 
       <div class="additional-links">
         <%= render "devise/shared/links" %>
       </div>
-    </div>
+
   </div>
 </div>
-
-
-<script>
-  // document.addEventListener('DOMContentLoaded', function() {
-  //   flatpickr('.flatpickr', {
-  //     dateFormat: 'Y-m-d',
-  //     maxDate: new Date().toISOString().split("T")[0],
-  //     defaultDate: new Date().toISOString().split("T")[0]
-  //   });
-  // });
-
-  //--------------------- avatar --------
-  document.addEventListener('DOMContentLoaded', function() {
-  const avatarInput = document.getElementById('avatar');
-  const avatarPreview = document.getElementById('avatar-preview');
-
-  avatarInput.addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function(event) {
-      const imageUrl = event.target.result;
-      avatarPreview.style.backgroundImage = `url('${imageUrl}')`;
-      avatarPreview.textContent = ''; // Clear the text
-    }
-
-    reader.readAsDataURL(file);
-  });
-});
-</script>
